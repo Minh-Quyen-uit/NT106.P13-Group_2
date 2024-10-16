@@ -17,3 +17,5 @@ create table UserAccount (
 go
 
 insert into UserAccount values ('admin01', 'admin01123456@', 'Nguyễn Minh Quyền', 'admin01@gmail.com', '05/11/2005')
+
+Select * from dbo.UserAccount
