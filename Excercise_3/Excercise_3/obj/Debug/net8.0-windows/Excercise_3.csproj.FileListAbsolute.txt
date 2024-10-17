@@ -60,3 +60,4 @@ D:\code\C#\NT106.P13_Excercise3\Excercise_3\Excercise_3\bin\Debug\net8.0-windows
 D:\code\C#\NT106.P13_Excercise3\Excercise_3\Excercise_3\obj\Debug\net8.0-windows\Excercise_3.csproj.AssemblyReference.cache
 D:\code\C#\NT106.P13_Excercise3\Excercise_3\Excercise_3\obj\Debug\net8.0-windows\Excercise_3.Server.resources
 D:\code\C#\NT106.P13_Excercise3\Excercise_3\Excercise_3\obj\Debug\net8.0-windows\Excercis.4A664EDB.Up2Date
+D:\code\C#\NT106.P13_Excercise3\Excercise_3\Excercise_3\obj\Debug\net8.0-windows\Excercise_3.Client_Server.resources

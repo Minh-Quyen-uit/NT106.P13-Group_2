@@ -52,7 +52,8 @@
             ServerScreen.Multiline = true;
             ServerScreen.Name = "ServerScreen";
             ServerScreen.ReadOnly = true;
-            ServerScreen.Size = new Size(552, 250);
+            ServerScreen.ScrollBars = ScrollBars.Vertical;
+            ServerScreen.Size = new Size(985, 250);
             ServerScreen.TabIndex = 1;
             // 
             // DgvAccounts
@@ -69,7 +70,7 @@
             AutoScaleDimensions = new SizeF(13F, 26F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(128, 255, 255);
-            ClientSize = new Size(794, 529);
+            ClientSize = new Size(1033, 529);
             Controls.Add(DgvAccounts);
             Controls.Add(ServerScreen);
             Controls.Add(label1);

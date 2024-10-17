@@ -34,19 +34,19 @@
             label8 = new Label();
             SignUp_Btn = new Button();
             panel7 = new Panel();
-            textBox5 = new TextBox();
+            BirthDay = new TextBox();
             label7 = new Label();
             panel6 = new Panel();
-            textBox4 = new TextBox();
+            Email = new TextBox();
             label6 = new Label();
             panel5 = new Panel();
-            textBox3 = new TextBox();
+            FullName = new TextBox();
             label5 = new Label();
             panel4 = new Panel();
-            textBox2 = new TextBox();
+            PassWord_confirm = new TextBox();
             label4 = new Label();
             panel3 = new Panel();
-            textBox1 = new TextBox();
+            PassWord = new TextBox();
             label3 = new Label();
             label2 = new Label();
             panel2 = new Panel();
@@ -85,7 +85,7 @@
             panel8.Location = new Point(0, 465);
             panel8.Name = "panel8";
             panel8.Size = new Size(511, 51);
-            panel8.TabIndex = 7;
+            panel8.TabIndex = 8;
             // 
             // Login_Btn
             // 
@@ -117,22 +117,23 @@
             SignUp_Btn.TabIndex = 7;
             SignUp_Btn.Text = "Đăng Ký";
             SignUp_Btn.UseVisualStyleBackColor = false;
+            SignUp_Btn.Click += SignUp_Btn_Click;
             // 
             // panel7
             // 
-            panel7.Controls.Add(textBox5);
+            panel7.Controls.Add(BirthDay);
             panel7.Controls.Add(label7);
             panel7.Location = new Point(3, 367);
             panel7.Name = "panel7";
             panel7.Size = new Size(511, 51);
-            panel7.TabIndex = 2;
+            panel7.TabIndex = 6;
             // 
-            // textBox5
+            // BirthDay
             // 
-            textBox5.Location = new Point(236, 8);
-            textBox5.Name = "textBox5";
-            textBox5.Size = new Size(275, 34);
-            textBox5.TabIndex = 6;
+            BirthDay.Location = new Point(236, 8);
+            BirthDay.Name = "BirthDay";
+            BirthDay.Size = new Size(275, 34);
+            BirthDay.TabIndex = 6;
             // 
             // label7
             // 
@@ -145,19 +146,19 @@
             // 
             // panel6
             // 
-            panel6.Controls.Add(textBox4);
+            panel6.Controls.Add(Email);
             panel6.Controls.Add(label6);
             panel6.Location = new Point(3, 310);
             panel6.Name = "panel6";
             panel6.Size = new Size(511, 51);
             panel6.TabIndex = 5;
             // 
-            // textBox4
+            // Email
             // 
-            textBox4.Location = new Point(236, 8);
-            textBox4.Name = "textBox4";
-            textBox4.Size = new Size(275, 34);
-            textBox4.TabIndex = 5;
+            Email.Location = new Point(236, 8);
+            Email.Name = "Email";
+            Email.Size = new Size(275, 34);
+            Email.TabIndex = 5;
             // 
             // label6
             // 
@@ -170,19 +171,19 @@
             // 
             // panel5
             // 
-            panel5.Controls.Add(textBox3);
+            panel5.Controls.Add(FullName);
             panel5.Controls.Add(label5);
             panel5.Location = new Point(3, 253);
             panel5.Name = "panel5";
             panel5.Size = new Size(511, 51);
             panel5.TabIndex = 4;
             // 
-            // textBox3
+            // FullName
             // 
-            textBox3.Location = new Point(236, 11);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(275, 34);
-            textBox3.TabIndex = 4;
+            FullName.Location = new Point(236, 11);
+            FullName.Name = "FullName";
+            FullName.Size = new Size(275, 34);
+            FullName.TabIndex = 4;
             // 
             // label5
             // 
@@ -195,19 +196,19 @@
             // 
             // panel4
             // 
-            panel4.Controls.Add(textBox2);
+            panel4.Controls.Add(PassWord_confirm);
             panel4.Controls.Add(label4);
             panel4.Location = new Point(3, 196);
             panel4.Name = "panel4";
             panel4.Size = new Size(511, 51);
             panel4.TabIndex = 3;
             // 
-            // textBox2
+            // PassWord_confirm
             // 
-            textBox2.Location = new Point(233, 8);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(275, 34);
-            textBox2.TabIndex = 3;
+            PassWord_confirm.Location = new Point(233, 8);
+            PassWord_confirm.Name = "PassWord_confirm";
+            PassWord_confirm.Size = new Size(275, 34);
+            PassWord_confirm.TabIndex = 3;
             // 
             // label4
             // 
@@ -220,19 +221,19 @@
             // 
             // panel3
             // 
-            panel3.Controls.Add(textBox1);
+            panel3.Controls.Add(PassWord);
             panel3.Controls.Add(label3);
             panel3.Location = new Point(3, 135);
             panel3.Name = "panel3";
             panel3.Size = new Size(511, 51);
             panel3.TabIndex = 2;
             // 
-            // textBox1
+            // PassWord
             // 
-            textBox1.Location = new Point(233, 8);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(275, 34);
-            textBox1.TabIndex = 2;
+            PassWord.Location = new Point(233, 8);
+            PassWord.Name = "PassWord";
+            PassWord.Size = new Size(275, 34);
+            PassWord.TabIndex = 2;
             // 
             // label3
             // 
@@ -317,19 +318,19 @@
         private TextBox UserName;
         private Label label1;
         private Panel panel7;
-        private TextBox textBox5;
+        private TextBox BirthDay;
         private Label label7;
         private Panel panel6;
-        private TextBox textBox4;
+        private TextBox Email;
         private Label label6;
         private Panel panel5;
-        private TextBox textBox3;
+        private TextBox FullName;
         private Label label5;
         private Panel panel4;
-        private TextBox textBox2;
+        private TextBox PassWord_confirm;
         private Label label4;
         private Panel panel3;
-        private TextBox textBox1;
+        private TextBox PassWord;
         private Label label3;
         private Panel panel8;
         private Label label8;
