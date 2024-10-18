@@ -12,6 +12,7 @@ using System.Net;
 using System.Net.Sockets;
 using System.Threading;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace Excercise_3
 {
@@ -94,15 +95,35 @@ namespace Excercise_3
                     AddMessage(password);
 
                     bool result = AccountDAO.Instance.login(username, password);
+                    
                     if (result)
                     {
                         //cho phep dang nhap
                         //LoadUserAccount(username);
+
                         Send(client, "1");
                     }
                     else
                     {
                         //khong cho phep dang nhap
+
+                        Send(client, "0");
+                    }
+                }
+                else
+                {
+                    string username = str[1].Trim();
+                    string password = str[2].Trim();
+                    string fullname = str[3].Trim();
+                    string email = str[4].Trim();
+                    string birthday = str[5].Trim();
+
+                    if (AccountDAO.Instance.signin(username, password, fullname, email, birthday) != 0)
+                    {
+                        Send(client, "1");
+                    }
+                    else
+                    {
                         Send(client, "0");
                     }
                 }

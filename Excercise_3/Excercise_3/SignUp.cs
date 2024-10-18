@@ -11,6 +11,8 @@ using System.Net;
 using System.Net.Sockets;
 using System.Threading;
 using System.IO;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
+using Excercise_3.DAO;
 
 
 namespace Excercise_3
@@ -48,9 +50,9 @@ namespace Excercise_3
 
         void Send()
         {
-            string str = UserName.Text + Environment.NewLine + PassWord.Text + Environment.NewLine
-                + PassWord_confirm.Text + Environment.NewLine + FullName.Text + Environment.NewLine
-                + Email.Text + Environment.NewLine + BirthDay.Text;
+            string str = "1" + Environment.NewLine + UserName.Text + Environment.NewLine + PassWord.Text + Environment.NewLine
+                + FullName.Text + Environment.NewLine
+                + Email.Text + Environment.NewLine + BirthDay.Text; 
             byte[] data = Encoding.UTF8.GetBytes(str);
             stream.Write(data, 0, data.Length);
             //AddMessage(Message.str);
@@ -66,17 +68,36 @@ namespace Excercise_3
                 stream.Read(recv, 0, recv.Length);
                 string s = Encoding.UTF8.GetString(recv);
                 //AddMessage(s);
+
+                int result = int.Parse(s);
+                if (result == 1)
+                {
+                    MessageBox.Show("Đăng ký thành công!");
+                }
+                else
+                {
+                    return;
+                }
             }
 
         }
 
         private void SignUp_Btn_Click(object sender, EventArgs e)
         {
+            string username = UserName.Text;
+            string password = PassWord.Text;
+            string REpassword = PassWord_confirm.Text;
+            string fullname = FullName.Text;
+            string email = Email.Text;
+            string birthday = BirthDay.Text;
+
+            if (string.IsNullOrEmpty(username)) { MessageBox.Show("Vui lòng nhập tên tài khoản!"); return; }
+            if (password.Length < 8) { MessageBox.Show("Mật khẩu dài ít nhất 8 ký tự!"); return; }
+            if (password != REpassword) { MessageBox.Show("Mật khẩu nhập lại không chính xác!"); return; }
+            if (string.IsNullOrEmpty(fullname)) { MessageBox.Show("Vui lòng nhập tên người dùng!"); return; }
+
             Send();
-            MainScreen mainScreen = new MainScreen();
-            this.Hide();
-            mainScreen.ShowDialog();
-            this.Show();
+
         }
 
         //void AddMessage(string msg)

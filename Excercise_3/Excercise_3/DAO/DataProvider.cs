@@ -12,7 +12,7 @@ namespace Excercise_3.DAO
     {
         private static DataProvider instance;
 
-        private string connectionStr = @"Data Source=LAPTOP-SLVPL967;Initial Catalog=QuanLyNguoiDung;Integrated Security=True;Trust Server Certificate=True";
+        private string connectionStr = @"Data Source=.\SQLEXPRESS;Initial Catalog=QuanLyNguoiDung;Integrated Security=True;Trust Server Certificate=True";
 
         public static DataProvider Instance {
             get { if(instance == null) instance = new DataProvider(); return DataProvider.instance; }

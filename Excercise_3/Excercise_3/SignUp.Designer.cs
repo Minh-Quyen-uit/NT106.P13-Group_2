@@ -34,7 +34,7 @@
             label8 = new Label();
             SignUp_Btn = new Button();
             panel7 = new Panel();
-            BirthDay = new TextBox();
+            BirthDay = new DateTimePicker();
             label7 = new Label();
             panel6 = new Panel();
             Email = new TextBox();
@@ -130,10 +130,12 @@
             // 
             // BirthDay
             // 
-            BirthDay.Location = new Point(236, 8);
+            BirthDay.Format = DateTimePickerFormat.Short;
+            BirthDay.Location = new Point(236, 5);
             BirthDay.Name = "BirthDay";
+            BirthDay.RightToLeft = RightToLeft.No;
             BirthDay.Size = new Size(275, 34);
-            BirthDay.TabIndex = 6;
+            BirthDay.TabIndex = 1;
             // 
             // label7
             // 
@@ -318,7 +320,6 @@
         private TextBox UserName;
         private Label label1;
         private Panel panel7;
-        private TextBox BirthDay;
         private Label label7;
         private Panel panel6;
         private TextBox Email;
@@ -327,7 +328,6 @@
         private TextBox FullName;
         private Label label5;
         private Panel panel4;
-        private TextBox PassWord_confirm;
         private Label label4;
         private Panel panel3;
         private TextBox PassWord;
@@ -336,5 +336,7 @@
         private Label label8;
         private Button SignUp_Btn;
         private Button Login_Btn;
+        private DateTimePicker BirthDay;
+        private TextBox PassWord_confirm;
     }
 }

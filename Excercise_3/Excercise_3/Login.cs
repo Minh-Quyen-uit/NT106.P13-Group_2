@@ -60,7 +60,9 @@ namespace Excercise_3
             }
             else
             {
+                
                 Send(username, password);
+
             }
 
         }
@@ -102,8 +104,9 @@ namespace Excercise_3
                 byte[] recv = new byte[1024];
                 stream.Read(recv, 0, recv.Length);
                 string s = Encoding.UTF8.GetString(recv);
+                
                 //AddMessage(s);
-                if(int.Parse(s) == 0)
+                if (int.Parse(s) == 0)
                 {
                     MessageBox.Show("Tên tài khoản hoặc mật khẩu không chính xác!!!", "thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 } else if(int.Parse(s) == 1)
