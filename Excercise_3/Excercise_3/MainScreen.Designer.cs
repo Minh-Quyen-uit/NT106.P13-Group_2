@@ -246,7 +246,7 @@
             // 
             // MainScreen
             // 
-            AcceptButton = Exit_Btn;
+            AcceptButton = LogOut_Btn;
             AutoScaleDimensions = new SizeF(11F, 22F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.BurlyWood;

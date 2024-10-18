@@ -31,6 +31,8 @@
             label1 = new Label();
             ServerScreen = new TextBox();
             DgvAccounts = new DataGridView();
+            label2 = new Label();
+            label3 = new Label();
             ((System.ComponentModel.ISupportInitialize)DgvAccounts).BeginInit();
             SuspendLayout();
             // 
@@ -46,31 +48,52 @@
             // 
             // ServerScreen
             // 
-            ServerScreen.BackColor = Color.Silver;
+            ServerScreen.BackColor = Color.White;
             ServerScreen.ForeColor = Color.FromArgb(0, 0, 64);
-            ServerScreen.Location = new Point(36, 70);
+            ServerScreen.Location = new Point(36, 99);
             ServerScreen.Multiline = true;
             ServerScreen.Name = "ServerScreen";
             ServerScreen.ReadOnly = true;
             ServerScreen.ScrollBars = ScrollBars.Vertical;
-            ServerScreen.Size = new Size(985, 250);
+            ServerScreen.Size = new Size(585, 171);
             ServerScreen.TabIndex = 1;
             // 
             // DgvAccounts
             // 
+            DgvAccounts.BackgroundColor = SystemColors.ButtonHighlight;
             DgvAccounts.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             DgvAccounts.Location = new Point(36, 326);
             DgvAccounts.Name = "DgvAccounts";
             DgvAccounts.RowHeadersWidth = 51;
-            DgvAccounts.Size = new Size(715, 188);
+            DgvAccounts.Size = new Size(585, 188);
             DgvAccounts.TabIndex = 2;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(42, 71);
+            label2.Name = "label2";
+            label2.Size = new Size(291, 26);
+            label2.TabIndex = 3;
+            label2.Text = "Hiện thị thông tin được gửi tới";
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new Point(48, 300);
+            label3.Name = "label3";
+            label3.Size = new Size(491, 26);
+            label3.TabIndex = 4;
+            label3.Text = "Thông tin tài khoản cần xác minh / thêm vào CSDL";
             // 
             // Server
             // 
             AutoScaleDimensions = new SizeF(13F, 26F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.FromArgb(128, 255, 255);
-            ClientSize = new Size(1033, 529);
+            BackColor = Color.FromArgb(192, 255, 192);
+            ClientSize = new Size(655, 564);
+            Controls.Add(label3);
+            Controls.Add(label2);
             Controls.Add(DgvAccounts);
             Controls.Add(ServerScreen);
             Controls.Add(label1);
@@ -88,5 +111,7 @@
         private Label label1;
         private TextBox ServerScreen;
         private DataGridView DgvAccounts;
+        private Label label2;
+        private Label label3;
     }
 }

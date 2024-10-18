@@ -30,21 +30,14 @@ namespace Excercise_3
             Connect();
         }
 
-        void LoginUserAccount(string UserName, string PassWord)
+        void LoadUserAccount(string UserName)
         {
 
             string query = "Exec dbo.USP_GetAccountByUserName @username";
             //Exec dbo.USP_GetAccountByUserName @username = N'admin01'
             //AddMessage(UserName);
-            DgvAccounts.DataSource = DataProvider.Instance.ExecuteQuery(query, new object[] {"admin01" });
-            string username = DgvAccounts.Rows[0].Cells[0].Value.ToString();
-            string password = DgvAccounts.Rows[0].Cells[1].Value.ToString();
-            //AddMessage(username);
-            if (username == UserName && password == PassWord)
-            {
-                //Send(client, "1");
-                AddMessage("cho");
-            }
+            DgvAccounts.DataSource = DataProvider.Instance.ExecuteQuery(query, new object[] {"admin01"});
+            
         }
 
         //TCP
@@ -73,7 +66,6 @@ namespace Excercise_3
         {
             byte[] data = Encoding.UTF8.GetBytes(result);
             client.Send(data);
-            //AddMessage(Message.Text);
 
         }
 
@@ -82,36 +74,38 @@ namespace Excercise_3
             while (true)
             {
                 Socket client = obj as Socket;
+                if (client == null)
+                {
+
+                    throw new ArgumentException("obj không thể chuyển đổi sang Socket");
+                }
+
                 byte[] recv = new byte[1024];
-                client.Receive(recv);
-                string s = Encoding.UTF8.GetString(recv);
-                //AddMessage(s);
-                string[] str = s.Split(new[] {'\n'}, StringSplitOptions.None);
-                AddMessage(str[1]);
-                AddMessage( str[2]);
-                //LoginUserAccount(str[1], str[2]);
-                string query = "begin select * from dbo.UserAccount where UserName = N'" + str[1] + "' and PassWord = N'" + str[2] + "' end ";
-                AddMessage(query);
-                bool result = AccountDAO.Instance.login(str[1], str[2]);
-                if (result)
+                int bytesReceived = client.Receive(recv);
+                string s = Encoding.UTF8.GetString(recv, 0, bytesReceived);
+                string[] str = s.Split(new[] { '\n' }, StringSplitOptions.RemoveEmptyEntries);
+
+                if (int.Parse(str[0].Trim())==0)
                 {
-                    Send(client, "1");
+                    AddMessage("Client:\n");
+                    string username = str[1].Trim();
+                    string password = str[2].Trim();
+                    AddMessage(username);
+                    AddMessage(password);
+
+                    bool result = AccountDAO.Instance.login(username, password);
+                    if (result)
+                    {
+                        //cho phep dang nhap
+                        //LoadUserAccount(username);
+                        Send(client, "1");
+                    }
+                    else
+                    {
+                        //khong cho phep dang nhap
+                        Send(client, "0");
+                    }
                 }
-                else
-                {
-                    Send(client, "0");
-                }
-                //AddMessage(str[1]);
-
-                //if (int.Parse(str[0]) == 0)
-                //{
-
-                //    result = LoginUserAccount(str[1], str[2]); 
-                //    // neu result = 1 thi gui tin hieu cho dang nhap
-                //    // neu result = 0 thi dang nhap sai
-                //}
-
-                //Send(client, result.ToString());
             }
 
         }
@@ -128,5 +122,6 @@ namespace Excercise_3
             }
         }
 
+        
     }
 }

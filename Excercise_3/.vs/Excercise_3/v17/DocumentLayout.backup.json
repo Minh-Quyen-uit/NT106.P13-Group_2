@@ -3,23 +3,20 @@
   "WorkspaceRootPath": "D:\\code\\C#\\NT106.P13_Excercise3\\Excercise_3\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{B8E91D91-0515-4A3E-8A6D-7CB8FB5C5523}|Excercise_3\\Excercise_3.csproj|d:\\code\\c#\\nt106.p13_excercise3\\excercise_3\\excercise_3\\dao\\accountdao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B8E91D91-0515-4A3E-8A6D-7CB8FB5C5523}|Excercise_3\\Excercise_3.csproj|solutionrelative:excercise_3\\dao\\accountdao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|ViewDataWindow_MSSQL__/LAPTOP_SLVPL967/QuanLyNguoiDung/True/SqlTable/dbo.UserAccount.sql||{0058A1F7-65F3-4DB9-B3D0-CA7E64DD73CD}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B8E91D91-0515-4A3E-8A6D-7CB8FB5C5523}|Excercise_3\\Excercise_3.csproj|d:\\code\\c#\\nt106.p13_excercise3\\excercise_3\\excercise_3\\server.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{B8E91D91-0515-4A3E-8A6D-7CB8FB5C5523}|Excercise_3\\Excercise_3.csproj|solutionrelative:excercise_3\\server.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{B8E91D91-0515-4A3E-8A6D-7CB8FB5C5523}|Excercise_3\\Excercise_3.csproj|d:\\code\\c#\\nt106.p13_excercise3\\excercise_3\\excercise_3\\server.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B8E91D91-0515-4A3E-8A6D-7CB8FB5C5523}|Excercise_3\\Excercise_3.csproj|solutionrelative:excercise_3\\server.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{B8E91D91-0515-4A3E-8A6D-7CB8FB5C5523}|Excercise_3\\Excercise_3.csproj|d:\\code\\c#\\nt106.p13_excercise3\\excercise_3\\excercise_3\\dao\\accountdao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B8E91D91-0515-4A3E-8A6D-7CB8FB5C5523}|Excercise_3\\Excercise_3.csproj|solutionrelative:excercise_3\\dao\\accountdao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{B8E91D91-0515-4A3E-8A6D-7CB8FB5C5523}|Excercise_3\\Excercise_3.csproj|d:\\code\\c#\\nt106.p13_excercise3\\excercise_3\\excercise_3\\dao\\dataprovider.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B8E91D91-0515-4A3E-8A6D-7CB8FB5C5523}|Excercise_3\\Excercise_3.csproj|solutionrelative:excercise_3\\dao\\dataprovider.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B8E91D91-0515-4A3E-8A6D-7CB8FB5C5523}|Excercise_3\\Excercise_3.csproj|d:\\code\\c#\\nt106.p13_excercise3\\excercise_3\\excercise_3\\server.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{B8E91D91-0515-4A3E-8A6D-7CB8FB5C5523}|Excercise_3\\Excercise_3.csproj|solutionrelative:excercise_3\\server.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
       "AbsoluteMoniker": "D:0:0:{B8E91D91-0515-4A3E-8A6D-7CB8FB5C5523}|Excercise_3\\Excercise_3.csproj|d:\\code\\c#\\nt106.p13_excercise3\\excercise_3\\excercise_3\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -33,8 +30,22 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 4,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Login.cs",
+              "DocumentMoniker": "D:\\code\\C#\\NT106.P13_Excercise3\\Excercise_3\\Excercise_3\\Login.cs",
+              "RelativeDocumentMoniker": "Excercise_3\\Login.cs",
+              "ToolTip": "D:\\code\\C#\\NT106.P13_Excercise3\\Excercise_3\\Excercise_3\\Login.cs",
+              "RelativeToolTip": "Excercise_3\\Login.cs",
+              "ViewState": "AgIAAD4AAAAAAAAAAAAAwH4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-18T01:12:45.981Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
@@ -42,76 +53,53 @@
             {
               "$type": "Document",
               "DocumentIndex": 2,
+              "Title": "DataProvider.cs",
+              "DocumentMoniker": "D:\\code\\C#\\NT106.P13_Excercise3\\Excercise_3\\Excercise_3\\DAO\\DataProvider.cs",
+              "RelativeDocumentMoniker": "Excercise_3\\DAO\\DataProvider.cs",
+              "ToolTip": "D:\\code\\C#\\NT106.P13_Excercise3\\Excercise_3\\Excercise_3\\DAO\\DataProvider.cs",
+              "RelativeToolTip": "Excercise_3\\DAO\\DataProvider.cs",
+              "ViewState": "AgIAACAAAAAAAAAAAAAgwCYAAAAuAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-18T02:30:56.204Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "AccountDAO.cs",
+              "DocumentMoniker": "D:\\code\\C#\\NT106.P13_Excercise3\\Excercise_3\\Excercise_3\\DAO\\AccountDAO.cs",
+              "RelativeDocumentMoniker": "Excercise_3\\DAO\\AccountDAO.cs",
+              "ToolTip": "D:\\code\\C#\\NT106.P13_Excercise3\\Excercise_3\\Excercise_3\\DAO\\AccountDAO.cs",
+              "RelativeToolTip": "Excercise_3\\DAO\\AccountDAO.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAABcAAABJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-18T00:50:01.662Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Server.cs",
+              "DocumentMoniker": "D:\\code\\C#\\NT106.P13_Excercise3\\Excercise_3\\Excercise_3\\Server.cs",
+              "RelativeDocumentMoniker": "Excercise_3\\Server.cs",
+              "ToolTip": "D:\\code\\C#\\NT106.P13_Excercise3\\Excercise_3\\Excercise_3\\Server.cs",
+              "RelativeToolTip": "Excercise_3\\Server.cs",
+              "ViewState": "AgIAAFUAAAAAAAAAAAAkwGMAAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-18T00:38:59.238Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "Server.cs [Design]",
               "DocumentMoniker": "D:\\code\\C#\\NT106.P13_Excercise3\\Excercise_3\\Excercise_3\\Server.cs",
               "RelativeDocumentMoniker": "Excercise_3\\Server.cs",
               "ToolTip": "D:\\code\\C#\\NT106.P13_Excercise3\\Excercise_3\\Excercise_3\\Server.cs [Design]",
               "RelativeToolTip": "Excercise_3\\Server.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-17T15:45:44.413Z",
+              "WhenOpened": "2024-10-18T00:38:12.604Z",
               "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "dbo.UserAccount [Data]",
-              "DocumentMoniker": "ViewDataWindow_MSSQL__/LAPTOP_SLVPL967/QuanLyNguoiDung/True/SqlTable/dbo.UserAccount.sql",
-              "ToolTip": "dbo.UserAccount [Data]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
-              "WhenOpened": "2024-10-17T15:31:49.454Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "AccountDAO.cs",
-              "DocumentMoniker": "D:\\code\\C#\\NT106.P13_Excercise3\\Excercise_3\\Excercise_3\\DAO\\AccountDAO.cs",
-              "RelativeDocumentMoniker": "Excercise_3\\DAO\\AccountDAO.cs",
-              "ToolTip": "D:\\code\\C#\\NT106.P13_Excercise3\\Excercise_3\\Excercise_3\\DAO\\AccountDAO.cs",
-              "RelativeToolTip": "Excercise_3\\DAO\\AccountDAO.cs",
-              "ViewState": "AgIAAAQAAAAAAAAAAAAAABUAAAAoAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-17T14:59:29.991Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "DataProvider.cs",
-              "DocumentMoniker": "D:\\code\\C#\\NT106.P13_Excercise3\\Excercise_3\\Excercise_3\\DAO\\DataProvider.cs",
-              "RelativeDocumentMoniker": "Excercise_3\\DAO\\DataProvider.cs",
-              "ToolTip": "D:\\code\\C#\\NT106.P13_Excercise3\\Excercise_3\\Excercise_3\\DAO\\DataProvider.cs",
-              "RelativeToolTip": "Excercise_3\\DAO\\DataProvider.cs",
-              "ViewState": "AgIAAA4AAAAAAAAAAAAAwCkAAAAgAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-17T14:00:23.227Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Server.cs",
-              "DocumentMoniker": "D:\\code\\C#\\NT106.P13_Excercise3\\Excercise_3\\Excercise_3\\Server.cs",
-              "RelativeDocumentMoniker": "Excercise_3\\Server.cs",
-              "ToolTip": "D:\\code\\C#\\NT106.P13_Excercise3\\Excercise_3\\Excercise_3\\Server.cs",
-              "RelativeToolTip": "Excercise_3\\Server.cs",
-              "ViewState": "AgIAAEoAAAAAAAAAAAAkwF8AAAAbAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-17T13:19:30.835Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "Login.cs",
-              "DocumentMoniker": "D:\\code\\C#\\NT106.P13_Excercise3\\Excercise_3\\Excercise_3\\Login.cs",
-              "RelativeDocumentMoniker": "Excercise_3\\Login.cs",
-              "ToolTip": "D:\\code\\C#\\NT106.P13_Excercise3\\Excercise_3\\Excercise_3\\Login.cs",
-              "RelativeToolTip": "Excercise_3\\Login.cs",
-              "ViewState": "AgIAAEcAAAAAAAAAAAAowFYAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-17T10:26:03.757Z",
-              "EditorCaption": ""
             }
           ]
         }

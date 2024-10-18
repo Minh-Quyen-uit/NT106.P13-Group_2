@@ -62,6 +62,7 @@
             Font = new Font("Times New Roman", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             Margin = new Padding(5, 4, 5, 4);
             Name = "Client_Server";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Client_Server";
             ResumeLayout(false);
         }

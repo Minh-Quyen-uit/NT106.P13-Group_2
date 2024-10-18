@@ -12,6 +12,7 @@ using System.Net.Sockets;
 using System.Threading;
 using System.IO;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
+using Excercise_3.DAO;
 
 namespace Excercise_3
 {
@@ -59,7 +60,7 @@ namespace Excercise_3
             }
             else
             {
-                Send();
+                Send(username, password);
             }
 
         }
@@ -85,12 +86,11 @@ namespace Excercise_3
             recv.Start();
         }
 
-        void Send()
+        void Send(string username, string password)
         {
-            string str = "0" + Environment.NewLine + UserName.Text + Environment.NewLine + PassWord.Text + Environment.NewLine;
+            string str = "0" + Environment.NewLine + username + Environment.NewLine + password + Environment.NewLine;
             byte[] data = Encoding.UTF8.GetBytes(str);
             stream.Write(data, 0, data.Length);
-            //AddMessage(Message.str);
 
         }
 
@@ -122,16 +122,5 @@ namespace Excercise_3
             this.Show();
         }
 
-        //void AddMessage(string msg)
-        //{
-        //    if (MessScreen.Text == "")
-        //    {
-        //        MessScreen.Text = msg;
-        //    }
-        //    else
-        //    {
-        //        MessScreen.Text += Environment.NewLine + msg;
-        //    }
-        //}
     }
 }
