@@ -30,10 +30,9 @@
         {
             label1 = new Label();
             ServerScreen = new TextBox();
-            DgvAccounts = new DataGridView();
             label2 = new Label();
             label3 = new Label();
-            ((System.ComponentModel.ISupportInitialize)DgvAccounts).BeginInit();
+            SendMess = new TextBox();
             SuspendLayout();
             // 
             // label1
@@ -58,16 +57,6 @@
             ServerScreen.Size = new Size(585, 171);
             ServerScreen.TabIndex = 1;
             // 
-            // DgvAccounts
-            // 
-            DgvAccounts.BackgroundColor = SystemColors.ButtonHighlight;
-            DgvAccounts.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            DgvAccounts.Location = new Point(36, 326);
-            DgvAccounts.Name = "DgvAccounts";
-            DgvAccounts.RowHeadersWidth = 51;
-            DgvAccounts.Size = new Size(585, 188);
-            DgvAccounts.TabIndex = 2;
-            // 
             // label2
             // 
             label2.AutoSize = true;
@@ -86,22 +75,33 @@
             label3.TabIndex = 4;
             label3.Text = "Thông tin tài khoản cần xác minh / thêm vào CSDL";
             // 
+            // SendMess
+            // 
+            SendMess.BackColor = Color.White;
+            SendMess.ForeColor = Color.FromArgb(0, 0, 64);
+            SendMess.Location = new Point(36, 329);
+            SendMess.Multiline = true;
+            SendMess.Name = "SendMess";
+            SendMess.ReadOnly = true;
+            SendMess.ScrollBars = ScrollBars.Vertical;
+            SendMess.Size = new Size(585, 171);
+            SendMess.TabIndex = 5;
+            // 
             // Server
             // 
             AutoScaleDimensions = new SizeF(13F, 26F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(192, 255, 192);
             ClientSize = new Size(655, 564);
+            Controls.Add(SendMess);
             Controls.Add(label3);
             Controls.Add(label2);
-            Controls.Add(DgvAccounts);
             Controls.Add(ServerScreen);
             Controls.Add(label1);
             Font = new Font("Times New Roman", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             Margin = new Padding(5, 4, 5, 4);
             Name = "Server";
             Text = "Server";
-            ((System.ComponentModel.ISupportInitialize)DgvAccounts).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -110,8 +110,8 @@
 
         private Label label1;
         private TextBox ServerScreen;
-        private DataGridView DgvAccounts;
         private Label label2;
         private Label label3;
+        private TextBox SendMess;
     }
 }

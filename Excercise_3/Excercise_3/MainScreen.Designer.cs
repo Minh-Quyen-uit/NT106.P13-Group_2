@@ -41,9 +41,6 @@
             panel4 = new Panel();
             FullName = new TextBox();
             label4 = new Label();
-            panel3 = new Panel();
-            PassWord = new TextBox();
-            label3 = new Label();
             label1 = new Label();
             panel2 = new Panel();
             UserName = new TextBox();
@@ -53,7 +50,6 @@
             panel6.SuspendLayout();
             panel5.SuspendLayout();
             panel4.SuspendLayout();
-            panel3.SuspendLayout();
             panel2.SuspendLayout();
             SuspendLayout();
             // 
@@ -63,19 +59,18 @@
             panel1.Controls.Add(panel6);
             panel1.Controls.Add(panel5);
             panel1.Controls.Add(panel4);
-            panel1.Controls.Add(panel3);
             panel1.Controls.Add(label1);
             panel1.Controls.Add(panel2);
             panel1.Location = new Point(12, 9);
             panel1.Name = "panel1";
-            panel1.Size = new Size(447, 445);
+            panel1.Size = new Size(447, 381);
             panel1.TabIndex = 0;
             // 
             // panel7
             // 
             panel7.Controls.Add(LogOut_Btn);
             panel7.Controls.Add(Exit_Btn);
-            panel7.Location = new Point(6, 380);
+            panel7.Location = new Point(6, 318);
             panel7.Name = "panel7";
             panel7.Size = new Size(441, 52);
             panel7.TabIndex = 7;
@@ -108,7 +103,7 @@
             // 
             panel6.Controls.Add(BirthDay);
             panel6.Controls.Add(label6);
-            panel6.Location = new Point(6, 320);
+            panel6.Location = new Point(6, 258);
             panel6.Name = "panel6";
             panel6.Size = new Size(441, 54);
             panel6.TabIndex = 6;
@@ -134,7 +129,7 @@
             // 
             panel5.Controls.Add(Email);
             panel5.Controls.Add(label5);
-            panel5.Location = new Point(6, 260);
+            panel5.Location = new Point(6, 198);
             panel5.Name = "panel5";
             panel5.Size = new Size(441, 54);
             panel5.TabIndex = 5;
@@ -160,7 +155,7 @@
             // 
             panel4.Controls.Add(FullName);
             panel4.Controls.Add(label4);
-            panel4.Location = new Point(6, 200);
+            panel4.Location = new Point(6, 138);
             panel4.Name = "panel4";
             panel4.Size = new Size(441, 54);
             panel4.TabIndex = 4;
@@ -181,32 +176,6 @@
             label4.Size = new Size(97, 22);
             label4.TabIndex = 0;
             label4.Text = "Họ và tên: ";
-            // 
-            // panel3
-            // 
-            panel3.Controls.Add(PassWord);
-            panel3.Controls.Add(label3);
-            panel3.Location = new Point(6, 140);
-            panel3.Name = "panel3";
-            panel3.Size = new Size(441, 54);
-            panel3.TabIndex = 3;
-            // 
-            // PassWord
-            // 
-            PassWord.Location = new Point(175, 9);
-            PassWord.Name = "PassWord";
-            PassWord.ReadOnly = true;
-            PassWord.Size = new Size(263, 30);
-            PassWord.TabIndex = 1;
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Location = new Point(3, 12);
-            label3.Name = "label3";
-            label3.Size = new Size(93, 22);
-            label3.TabIndex = 0;
-            label3.Text = "Mật Khẩu:";
             // 
             // label1
             // 
@@ -250,7 +219,7 @@
             AutoScaleDimensions = new SizeF(11F, 22F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.BurlyWood;
-            ClientSize = new Size(471, 466);
+            ClientSize = new Size(471, 397);
             Controls.Add(panel1);
             Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             Margin = new Padding(4, 3, 4, 3);
@@ -266,8 +235,6 @@
             panel5.PerformLayout();
             panel4.ResumeLayout(false);
             panel4.PerformLayout();
-            panel3.ResumeLayout(false);
-            panel3.PerformLayout();
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
             ResumeLayout(false);
@@ -288,9 +255,6 @@
         private Panel panel4;
         private TextBox FullName;
         private Label label4;
-        private Panel panel3;
-        private TextBox PassWord;
-        private Label label3;
         private Label label1;
         private Panel panel7;
         private Button Exit_Btn;

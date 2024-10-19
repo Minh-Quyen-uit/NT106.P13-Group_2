@@ -52,6 +52,7 @@
             panel2 = new Panel();
             UserName = new TextBox();
             label1 = new Label();
+            PasswordCheck = new CheckBox();
             panel1.SuspendLayout();
             panel8.SuspendLayout();
             panel7.SuspendLayout();
@@ -64,6 +65,7 @@
             // 
             // panel1
             // 
+            panel1.Controls.Add(PasswordCheck);
             panel1.Controls.Add(panel8);
             panel1.Controls.Add(SignUp_Btn);
             panel1.Controls.Add(panel7);
@@ -75,14 +77,14 @@
             panel1.Controls.Add(panel2);
             panel1.Location = new Point(12, 12);
             panel1.Name = "panel1";
-            panel1.Size = new Size(517, 547);
+            panel1.Size = new Size(517, 587);
             panel1.TabIndex = 0;
             // 
             // panel8
             // 
             panel8.Controls.Add(Login_Btn);
             panel8.Controls.Add(label8);
-            panel8.Location = new Point(0, 465);
+            panel8.Location = new Point(0, 507);
             panel8.Name = "panel8";
             panel8.Size = new Size(511, 51);
             panel8.TabIndex = 8;
@@ -111,7 +113,7 @@
             // 
             SignUp_Btn.BackColor = Color.Cyan;
             SignUp_Btn.ForeColor = SystemColors.ActiveCaptionText;
-            SignUp_Btn.Location = new Point(368, 424);
+            SignUp_Btn.Location = new Point(368, 466);
             SignUp_Btn.Name = "SignUp_Btn";
             SignUp_Btn.Size = new Size(143, 35);
             SignUp_Btn.TabIndex = 7;
@@ -123,7 +125,7 @@
             // 
             panel7.Controls.Add(BirthDay);
             panel7.Controls.Add(label7);
-            panel7.Location = new Point(3, 367);
+            panel7.Location = new Point(3, 409);
             panel7.Name = "panel7";
             panel7.Size = new Size(511, 51);
             panel7.TabIndex = 6;
@@ -150,7 +152,7 @@
             // 
             panel6.Controls.Add(Email);
             panel6.Controls.Add(label6);
-            panel6.Location = new Point(3, 310);
+            panel6.Location = new Point(3, 352);
             panel6.Name = "panel6";
             panel6.Size = new Size(511, 51);
             panel6.TabIndex = 5;
@@ -175,7 +177,7 @@
             // 
             panel5.Controls.Add(FullName);
             panel5.Controls.Add(label5);
-            panel5.Location = new Point(3, 253);
+            panel5.Location = new Point(3, 295);
             panel5.Name = "panel5";
             panel5.Size = new Size(511, 51);
             panel5.TabIndex = 4;
@@ -209,6 +211,7 @@
             // 
             PassWord_confirm.Location = new Point(233, 8);
             PassWord_confirm.Name = "PassWord_confirm";
+            PassWord_confirm.PasswordChar = '*';
             PassWord_confirm.Size = new Size(275, 34);
             PassWord_confirm.TabIndex = 3;
             // 
@@ -234,6 +237,7 @@
             // 
             PassWord.Location = new Point(233, 8);
             PassWord.Name = "PassWord";
+            PassWord.PasswordChar = '*';
             PassWord.Size = new Size(275, 34);
             PassWord.TabIndex = 2;
             // 
@@ -281,12 +285,23 @@
             label1.TabIndex = 0;
             label1.Text = "Tên đăng nhập: ";
             // 
+            // PasswordCheck
+            // 
+            PasswordCheck.AutoSize = true;
+            PasswordCheck.Location = new Point(312, 255);
+            PasswordCheck.Name = "PasswordCheck";
+            PasswordCheck.Size = new Size(199, 30);
+            PasswordCheck.TabIndex = 9;
+            PasswordCheck.Text = "Hiện thị mật khẩu";
+            PasswordCheck.UseVisualStyleBackColor = true;
+            PasswordCheck.CheckedChanged += PasswordCheck_CheckedChanged;
+            // 
             // SignUp
             // 
             AcceptButton = SignUp_Btn;
             AutoScaleDimensions = new SizeF(13F, 26F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(541, 571);
+            ClientSize = new Size(541, 611);
             Controls.Add(panel1);
             Font = new Font("Times New Roman", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             Margin = new Padding(5, 4, 5, 4);
@@ -338,5 +353,6 @@
         private Button Login_Btn;
         private DateTimePicker BirthDay;
         private TextBox PassWord_confirm;
+        private CheckBox PasswordCheck;
     }
 }

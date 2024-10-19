@@ -19,11 +19,33 @@ namespace Excercise_3.DAO
         }
         private AccountDAO() { }
 
+        private string AccUsername;
+        private string AccFullname;
+        private string AccEmail;
+        private string AccBirthday;
+        public string GetSetAccUsername
+        {
+            get { if (AccUsername == null) AccUsername = "Guest"; return AccUsername; }
+            private set => AccUsername = value;
+        }
+        public string GetSetAccFullname
+        {
+            get { if (AccFullname == null) AccFullname = ""; return AccFullname; }
+            private set => AccFullname = value;
+        }
+        public string GetSetAccEmail
+        {
+            get { if (AccEmail == null) AccEmail = ""; return AccEmail; }
+            private set => AccEmail = value;
+        }
+        public string GetSetAccBirthday
+        {
+            get { if (AccBirthday == null) AccBirthday = DateTime.Now.ToString(); return AccBirthday; }
+            private set => AccBirthday = value;
+        }
+
         public bool login(string username, string password) {
-            var sha256 = SHA256.Create();
-            byte[] EnteredPassword = sha256.ComputeHash(Encoding.UTF8.GetBytes(password));
-            string EncryptEnteredPassword = Convert.ToBase64String(EnteredPassword);
-            string query = " begin select * from dbo.UserAccount where UserName = N'" + username + "' and PassWord = N'" + EncryptEnteredPassword + "' end";
+            string query = " begin select * from dbo.UserAccount where UserName = N'" + username + "' and PassWord = N'" + password + "' end";
             //string query = "select * from dbo.UserAccount where UserName = N'staff01' and PassWord = N'staff01123456@'";
 
             DataTable result = DataProvider.Instance.ExecuteQuery(query);
@@ -31,10 +53,7 @@ namespace Excercise_3.DAO
             return result.Rows.Count > 0;
         }
 
-        private bool checkSigninEmail(string email)
-        {
-            return Regex.IsMatch(email, "^[a-zA-Z0-9_.]{3,24}@gmail.com$");
-        }
+        
         public int signin(string username, string password, string fullname, string email, string birthday)
         {
             if (username.Length < 4) { MessageBox.Show("Tên tài khoản phải chứa từ 4 ký tự trở lên! "); return 0; }
@@ -50,9 +69,27 @@ namespace Excercise_3.DAO
 
 
             string query = "INSERT INTO dbo.UserAccount (UserName, PassWord, FullName, Email, BirthDay) VALUES ( @Username , @Password , @Fullname , @Email , @Birthday )";
-            int result = DataProvider.Instance.ExecuteNonQuery(query, new object[] { username, EncryptedPassword, fullname, email , birthday });
+            int result = DataProvider.Instance.ExecuteNonQuery(query, new object[] { username, password, fullname, email , birthday });
             return result;
         }
+
+        public void GetUserInfo(string username)
+        {
+            
+            string query = "select * from dbo.UserAccount where UserName = N'" + username + "'";
+            List<string> result = DataProvider.Instance.ExecuteReader(query);
+            GetSetAccUsername = result[0];
+            GetSetAccFullname = result[2];
+            GetSetAccEmail = result[3];
+            GetSetAccBirthday = result[4];
+        }
+
+        private bool checkSigninEmail(string email)
+        {
+            return Regex.IsMatch(email, "^[a-zA-Z0-9_.]{3,24}@gmail.com$");
+        }
+
+
     }
 
 }

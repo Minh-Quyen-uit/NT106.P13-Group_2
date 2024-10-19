@@ -32,6 +32,7 @@
             panel6 = new Panel();
             Exit_Btn = new Button();
             panel5 = new Panel();
+            PasswordCheck = new CheckBox();
             Login_Btn = new Button();
             panel4 = new Panel();
             SignUp_Btn = new Button();
@@ -86,11 +87,23 @@
             // 
             // panel5
             // 
+            panel5.Controls.Add(PasswordCheck);
             panel5.Controls.Add(Login_Btn);
             panel5.Location = new Point(3, 197);
             panel5.Name = "panel5";
             panel5.Size = new Size(528, 54);
             panel5.TabIndex = 3;
+            // 
+            // PasswordCheck
+            // 
+            PasswordCheck.AutoSize = true;
+            PasswordCheck.Location = new Point(3, 9);
+            PasswordCheck.Name = "PasswordCheck";
+            PasswordCheck.Size = new Size(199, 30);
+            PasswordCheck.TabIndex = 4;
+            PasswordCheck.Text = "Hiện thị mật khẩu";
+            PasswordCheck.UseVisualStyleBackColor = true;
+            PasswordCheck.CheckedChanged += PasswordCheck_CheckedChanged;
             // 
             // Login_Btn
             // 
@@ -145,6 +158,7 @@
             // 
             PassWord.Location = new Point(175, 9);
             PassWord.Name = "PassWord";
+            PassWord.PasswordChar = '*';
             PassWord.Size = new Size(329, 34);
             PassWord.TabIndex = 2;
             // 
@@ -210,6 +224,7 @@
             panel1.PerformLayout();
             panel6.ResumeLayout(false);
             panel5.ResumeLayout(false);
+            panel5.PerformLayout();
             panel4.ResumeLayout(false);
             panel4.PerformLayout();
             panel3.ResumeLayout(false);
@@ -236,5 +251,6 @@
         private Label label2;
         private Panel panel6;
         private Button Exit_Btn;
+        private CheckBox PasswordCheck;
     }
 }

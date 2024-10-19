@@ -11,6 +11,7 @@ using System.Net;
 using System.Net.Sockets;
 using System.Threading;
 using System.IO;
+using System.Security.Cryptography;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 using Excercise_3.DAO;
 
@@ -24,7 +25,7 @@ namespace Excercise_3
         public Login()
         {
             InitializeComponent();
-            
+
         }
 
         private void Exit_Btn_Click(object sender, EventArgs e)
@@ -60,8 +61,11 @@ namespace Excercise_3
             }
             else
             {
-                
-                Send(username, password);
+
+                var sha256 = SHA256.Create();
+                byte[] EnteredPassword = sha256.ComputeHash(Encoding.UTF8.GetBytes(password));
+                string EncryptEnteredPassword = Convert.ToBase64String(EnteredPassword);
+                Send(username, EncryptEnteredPassword);
 
             }
 
@@ -70,7 +74,7 @@ namespace Excercise_3
         private void SignUp_Btn_Click(object sender, EventArgs e)
         {
             SignUp signUp = new SignUp();
-            this.Hide(); 
+            this.Hide();
             signUp.ShowDialog();
             this.Show();
         }
@@ -104,26 +108,40 @@ namespace Excercise_3
                 byte[] recv = new byte[1024];
                 stream.Read(recv, 0, recv.Length);
                 string s = Encoding.UTF8.GetString(recv);
-                
+
                 //AddMessage(s);
                 if (int.Parse(s) == 0)
                 {
                     MessageBox.Show("Tên tài khoản hoặc mật khẩu không chính xác!!!", "thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                } else if(int.Parse(s) == 1)
+                }
+                else if (int.Parse(s) == 1)
                 {
-                    ShowMainScreen();
+                    ShowMainScreen(UserName.Text);
                 }
             }
 
         }
 
-        void ShowMainScreen()
+        void ShowMainScreen(string Username)
         {
-            MainScreen mainScreen = new MainScreen();
+            MainScreen mainScreen = new MainScreen(Username);
             this.Hide();
             mainScreen.ShowDialog();
             this.Show();
         }
 
+        private void PasswordCheck_CheckedChanged(object sender, EventArgs e)
+        {
+            if (PasswordCheck.Checked)
+            {
+                // Hiển thị mật khẩu
+                PassWord.PasswordChar = '\0';
+            }
+            else
+            {
+                // Ẩn mật khẩu
+                PassWord.PasswordChar = '*';
+            }
+        }
     }
 }

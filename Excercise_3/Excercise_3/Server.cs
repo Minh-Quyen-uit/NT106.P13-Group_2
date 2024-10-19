@@ -78,11 +78,11 @@ namespace Excercise_3
 
                 if (int.Parse(str[0].Trim())==0)
                 {
-                    AddMessage("Client:\n");
+                    ReceiveMessage("Client Login form:\n");
                     string username = str[1].Trim();
                     string password = str[2].Trim();
-                    AddMessage(username);
-                    AddMessage(password);
+                    ReceiveMessage(username);
+                    ReceiveMessage(password);
 
                     bool result = AccountDAO.Instance.login(username, password);
                     
@@ -92,36 +92,61 @@ namespace Excercise_3
                         //LoadUserAccount(username);
 
                         Send(client, "1");
+                        SendMessage("To client Login: 1");
                     }
                     else
                     {
                         //khong cho phep dang nhap
 
                         Send(client, "0");
+                        SendMessage("To client Login: 0");
                     }
                 }
-                else
+                else if(int.Parse(str[0].Trim()) == 1)
                 {
+                    ReceiveMessage("Client Sign up form:\n");
                     string username = str[1].Trim();
                     string password = str[2].Trim();
                     string fullname = str[3].Trim();
                     string email = str[4].Trim();
                     string birthday = str[5].Trim();
+                    ReceiveMessage(username);
+                    ReceiveMessage(password);
+                    ReceiveMessage(fullname);
+                    ReceiveMessage(email);
+                    ReceiveMessage(birthday);
 
                     if (AccountDAO.Instance.signin(username, password, fullname, email, birthday) != 0)
                     {
                         Send(client, "1");
+                        SendMessage("To client Sign up: 1");
                     }
                     else
                     {
                         Send(client, "0");
+                        SendMessage("To client Sign up: 0");
                     }
+                }
+                else if (int.Parse(str[0].Trim())==2)
+                {
+                    string username = str[1].Trim();
+                    AccountDAO.Instance.GetUserInfo(username);
+                    ReceiveMessage("Client Main form:\n");
+                    ReceiveMessage(username);
+                    string rec = AccountDAO.Instance.GetSetAccUsername + Environment.NewLine
+                        + AccountDAO.Instance.GetSetAccFullname + Environment.NewLine
+                        + AccountDAO.Instance.GetSetAccEmail + Environment.NewLine
+                        + AccountDAO.Instance.GetSetAccBirthday + Environment.NewLine;
+                    //AddMessage(rec);
+                    Send(client, rec);
+                    SendMessage("To client Main form:");
+                    SendMessage(rec);
                 }
             }
 
         }
 
-        void AddMessage(string msg)
+        void ReceiveMessage(string msg)
         {
             if (ServerScreen.Text == "")
             {
@@ -133,6 +158,17 @@ namespace Excercise_3
             }
         }
 
-        
+        void SendMessage(string msg)
+        {
+            if (SendMess.Text == "")
+            {
+                SendMess.Text = msg;
+            }
+            else
+            {
+                SendMess.Text += Environment.NewLine + msg;
+            }
+        }
+
     }
 }

@@ -12,10 +12,11 @@ namespace Excercise_3.DAO
     {
         private static DataProvider instance;
 
-        private string connectionStr = @"Data Source=.\SQLEXPRESS;Initial Catalog=QuanLyNguoiDung;Integrated Security=True;Trust Server Certificate=True";
+        private string connectionStr = @"Data Source=LAPTOP-SLVPL967;Initial Catalog=QuanLyNguoiDung;Integrated Security=True;Encrypt=True;Trust Server Certificate=True";
 
-        public static DataProvider Instance {
-            get { if(instance == null) instance = new DataProvider(); return DataProvider.instance; }
+        public static DataProvider Instance
+        {
+            get { if (instance == null) instance = new DataProvider(); return DataProvider.instance; }
             private set { instance=value; }
         }
         private DataProvider() { }
@@ -30,13 +31,13 @@ namespace Excercise_3.DAO
 
                 SqlCommand cmd = new SqlCommand(query, connection);
 
-                if (parameter != null )
+                if (parameter != null)
                 {
                     string[] listPara = query.Split(' ');
                     int i = 0;
                     foreach (string item in listPara)
                     {
-                        if(item.Contains('@'))
+                        if (item.Contains('@'))
                         {
                             cmd.Parameters.AddWithValue(item, parameter[i]);
                             i++;
@@ -49,7 +50,7 @@ namespace Excercise_3.DAO
 
                 connection.Close();
             }
-            
+
             return data;
         }
 
@@ -115,5 +116,42 @@ namespace Excercise_3.DAO
             return data;
         }
 
+        public List<string> ExecuteReader(string query, object[] parameter = null)
+        {
+            List<string> data = new List<string>();
+            using (SqlConnection connection = new SqlConnection(connectionStr))
+            {
+                connection.Open();
+                SqlCommand cmd = new SqlCommand(query, connection);
+                if (parameter != null)
+                {
+                    string[] listPara = query.Split(' ');
+                    int i = 0;
+                    foreach (string item in listPara)
+                    {
+                        if (item.Contains('@'))
+                        {
+                            cmd.Parameters.AddWithValue(item, parameter[i]);
+                            i++;
+                        }
+                    }
+                }
+                SqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    string data1 = reader.GetString(0); data.Add(data1);
+                    string data2 = reader.GetString(1); data.Add(data2);
+                    string data3 = reader.GetString(2); data.Add(data3);
+                    string data4 = reader.GetString(3); data.Add(data4);
+                    DateTime Datedata5 = reader.GetDateTime(4);
+                    string data5 = Datedata5.ToString(); data.Add(data5);
+
+                }
+
+                connection.Close();
+            }
+
+            return data;
+        }
     }
 }
