@@ -107,7 +107,51 @@ namespace Excercise_3.DAO
                         }
                     }
                 }
+
                 data = cmd.ExecuteScalar();
+                
+
+                connection.Close();
+            }
+
+            return data;
+        }
+
+        public List<string> ExecuteReader(string query, object[] parameter = null)
+        {
+            List<string> data = new List<string>();
+
+            using (SqlConnection connection = new SqlConnection(connectionStr))
+            {
+                connection.Open();
+
+                SqlCommand cmd = new SqlCommand(query, connection);
+
+                if (parameter != null)
+                {
+                    string[] listPara = query.Split(' ');
+                    int i = 0;
+                    foreach (string item in listPara)
+                    {
+                        if (item.Contains('@'))
+                        {
+                            cmd.Parameters.AddWithValue(item, parameter[i]);
+                            i++;
+                        }
+                    }
+                }
+                SqlDataReader reader = cmd.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    string data1 = reader.GetString(0); data.Add(data1);
+                    string data2 = reader.GetString(1); data.Add(data2);
+                    string data3 = reader.GetString(2); data.Add(data3);
+                    string data4 = reader.GetString(3); data.Add(data4);
+                    DateTime Datedata5 = reader.GetDateTime(4);
+                    string data5 = Datedata5.ToString(); data.Add(data5);
+                    
+                }
 
                 connection.Close();
             }

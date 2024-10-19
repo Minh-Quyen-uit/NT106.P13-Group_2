@@ -14,6 +14,8 @@ using System.IO;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 using Excercise_3.DAO;
 
+using System.Security.Cryptography;
+
 namespace Excercise_3
 {
     public partial class Login : Form
@@ -111,7 +113,12 @@ namespace Excercise_3
                     MessageBox.Show("Tên tài khoản hoặc mật khẩu không chính xác!!!", "thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 } else if(int.Parse(s) == 1)
                 {
+                    this.Hide();
+                    string username = UserName.Text;
+                    string password = PassWord.Text;
+                    AccountDAO.Instance.GetUserInfo(username, password);
                     ShowMainScreen();
+                    
                 }
             }
 

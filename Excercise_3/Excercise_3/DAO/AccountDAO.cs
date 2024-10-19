@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Drawing.Text;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
@@ -17,7 +18,46 @@ namespace Excercise_3.DAO
             get  {if(instance == null) instance = new AccountDAO(); return instance; }
             private set => instance=value; 
         }
+
+        private string AccUsername;
+        private string AccPassword;
+        private string AccFullname;
+        private string AccEmail;
+        private string AccBirthday;
+
+        public string GetSetAccUsername
+        {
+            get { if (AccUsername == null) AccUsername = "Guest"; return AccUsername; }
+            private set => AccUsername = value; 
+        }
+
+        public string GetSetAccPassword
+        {
+            get { if (AccPassword == null) AccPassword = ""; return AccPassword; }
+            private set => AccPassword = value;
+        }
+
+        public string GetSetAccFullname
+        {
+            get { if (AccFullname == null) AccFullname = ""; return AccFullname; }
+            private set => AccFullname = value;
+        }
+
+        public string GetSetAccEmail
+        {
+            get { if (AccEmail == null) AccEmail = ""; return AccEmail; }
+            private set => AccEmail = value;
+        }
+
+        public string GetSetAccBirthday
+        {
+            get { if (AccBirthday == null) AccBirthday = DateTime.Now.ToString(); return AccBirthday; }
+            private set => AccBirthday = value;
+        }
+
         private AccountDAO() { }
+
+
 
         public bool login(string username, string password) {
             var sha256 = SHA256.Create();
@@ -56,6 +96,22 @@ namespace Excercise_3.DAO
             string query = "INSERT INTO dbo.UserAccount (UserName, PassWord, FullName, Email, BirthDay) VALUES ( @Username , @Password , @Fullname , @Email , @Birthday )";
             int result = DataProvider.Instance.ExecuteNonQuery(query, new object[] { username, EncryptedPassword, fullname, email , birthday });
             return result;
+        }
+
+        public void GetUserInfo(string username, string password)
+        {            
+            var sha256 = SHA256.Create();
+            byte[] EnteredPassword = sha256.ComputeHash(Encoding.UTF8.GetBytes(password));
+            string EncryptEnteredPassword = Convert.ToBase64String(EnteredPassword);
+            string query = "select * from dbo.UserAccount where UserName = N'" + username + "' and PassWord = N'" + EncryptEnteredPassword + "'";
+            List<string> result = DataProvider.Instance.ExecuteReader(query);
+
+            GetSetAccUsername = result[0];
+            GetSetAccPassword = result[1];
+            GetSetAccFullname = result[2];
+            GetSetAccEmail = result[3];
+            GetSetAccBirthday = result[4];
+
         }
     }
 

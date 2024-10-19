@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Excercise_3.DAO;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,7 @@ namespace Excercise_3
         public MainScreen()
         {
             InitializeComponent();
+            AccountInfo();
         }
 
 
@@ -26,6 +28,15 @@ namespace Excercise_3
         private void LogOut_Btn_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void AccountInfo()
+        {
+            UserName.Text = AccountDAO.Instance.GetSetAccUsername;
+            PassWord.Text = AccountDAO.Instance.GetSetAccPassword;
+            FullName.Text = AccountDAO.Instance.GetSetAccFullname;
+            Email.Text = AccountDAO.Instance.GetSetAccEmail;
+            BirthDay.Text = AccountDAO.Instance.GetSetAccBirthday;
         }
     }
 }

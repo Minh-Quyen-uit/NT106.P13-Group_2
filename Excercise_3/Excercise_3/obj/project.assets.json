@@ -2122,19 +2122,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\MINH QUYEN\\.nuget\\packages\\": {}
+    "C:\\Users\\pc\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\code\\C#\\NT106.P13_Excercise3\\Excercise_3\\Excercise_3\\Excercise_3.csproj",
+      "projectUniqueName": "E:\\Uni\\HK3\\Network programming\\Group\\Excercise_3\\Excercise_3\\Excercise_3.csproj",
       "projectName": "Excercise_3",
-      "projectPath": "D:\\code\\C#\\NT106.P13_Excercise3\\Excercise_3\\Excercise_3\\Excercise_3.csproj",
-      "packagesPath": "C:\\Users\\MINH QUYEN\\.nuget\\packages\\",
-      "outputPath": "D:\\code\\C#\\NT106.P13_Excercise3\\Excercise_3\\Excercise_3\\obj\\",
+      "projectPath": "E:\\Uni\\HK3\\Network programming\\Group\\Excercise_3\\Excercise_3\\Excercise_3.csproj",
+      "packagesPath": "C:\\Users\\pc\\.nuget\\packages\\",
+      "outputPath": "E:\\Uni\\HK3\\Network programming\\Group\\Excercise_3\\Excercise_3\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\MINH QUYEN\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\pc\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -2193,7 +2193,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.403/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400/PortableRuntimeIdentifierGraph.json"
       }
     }
   }
