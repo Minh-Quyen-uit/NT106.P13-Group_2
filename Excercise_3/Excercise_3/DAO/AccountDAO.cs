@@ -49,10 +49,6 @@ namespace Excercise_3.DAO
             }
 
 
-            var sha256 = SHA256.Create();
-            byte[] Encrypt = sha256.ComputeHash(Encoding.UTF8.GetBytes(password));
-            string EncryptedPassword = Convert.ToBase64String(Encrypt);
-
             string query = "INSERT INTO dbo.UserAccount (UserName, PassWord, FullName, Email, BirthDay) VALUES ( @Username , @Password , @Fullname , @Email , @Birthday )";
             int result = DataProvider.Instance.ExecuteNonQuery(query, new object[] { username, EncryptedPassword, fullname, email , birthday });
             return result;

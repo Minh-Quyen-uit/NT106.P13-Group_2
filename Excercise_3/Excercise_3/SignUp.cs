@@ -82,23 +82,7 @@ namespace Excercise_3
 
         }
 
-        private void SignUp_Btn_Click(object sender, EventArgs e)
-        {
-            string username = UserName.Text;
-            string password = PassWord.Text;
-            string REpassword = PassWord_confirm.Text;
-            string fullname = FullName.Text;
-            string email = Email.Text;
-            string birthday = BirthDay.Text;
 
-            if (string.IsNullOrEmpty(username)) { MessageBox.Show("Vui lòng nhập tên tài khoản!"); return; }
-            if (password.Length < 8) { MessageBox.Show("Mật khẩu dài ít nhất 8 ký tự!"); return; }
-            if (password != REpassword) { MessageBox.Show("Mật khẩu nhập lại không chính xác!"); return; }
-            if (string.IsNullOrEmpty(fullname)) { MessageBox.Show("Vui lòng nhập tên người dùng!"); return; }
-
-            Send();
-
-        }
 
         //void AddMessage(string msg)
         //{

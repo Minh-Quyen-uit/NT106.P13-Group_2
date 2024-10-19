@@ -34,3 +34,10 @@ go
 Exec dbo.USP_GetAccountByUserName @username = N'staff01'
 
 Select * from dbo.UserAccount
+
+SELECT FORMAT(GETDATE(), 'dd/MM/yyyy') AS FormattedDate;
+
+UPDATE UserAccount SET BirthDay = FORMAT(BirthDay, 'dd/MM/yyyy');
+
+DELETE FROM dbo.UserAccount
+WHERE UserId = 123;

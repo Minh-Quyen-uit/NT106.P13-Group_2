@@ -31,16 +31,6 @@ namespace Excercise_3
             Connect();
         }
 
-        void LoadUserAccount(string UserName)
-        {
-
-            string query = "Exec dbo.USP_GetAccountByUserName @username";
-            //Exec dbo.USP_GetAccountByUserName @username = N'admin01'
-            //AddMessage(UserName);
-            DgvAccounts.DataSource = DataProvider.Instance.ExecuteQuery(query, new object[] {"admin01"});
-            
-        }
-
         //TCP
         void Connect()
         {
