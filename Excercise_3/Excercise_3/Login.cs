@@ -25,7 +25,6 @@ namespace Excercise_3
         public Login()
         {
             InitializeComponent();
-
         }
 
         private void Exit_Btn_Click(object sender, EventArgs e)
@@ -117,6 +116,7 @@ namespace Excercise_3
                 else if (int.Parse(s) == 1)
                 {
                     ShowMainScreen(UserName.Text);
+                    
                 }
             }
 

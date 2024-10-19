@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Drawing.Text;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
@@ -17,6 +18,7 @@ namespace Excercise_3.DAO
             get  {if(instance == null) instance = new AccountDAO(); return instance; }
             private set => instance=value; 
         }
+
         private AccountDAO() { }
 
         private string AccUsername;
