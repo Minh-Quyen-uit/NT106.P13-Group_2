@@ -85,7 +85,7 @@ namespace Excercise_3
                     ReceiveMessage(password);
 
                     bool result = AccountDAO.Instance.login(username, password);
-                    
+
                     if (result)
                     {
                         //cho phep dang nhap
@@ -102,7 +102,7 @@ namespace Excercise_3
                         SendMessage("To client Login: 0");
                     }
                 }
-                else if(int.Parse(str[0].Trim()) == 1)
+                else if (int.Parse(str[0].Trim()) == 1)
                 {
                     ReceiveMessage("Client Sign up form:\n");
                     string username = str[1].Trim();
@@ -170,5 +170,9 @@ namespace Excercise_3
             }
         }
 
+        private void Exit_Btn_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             panel1 = new Panel();
+            PasswordCheck = new CheckBox();
             panel8 = new Panel();
             Login_Btn = new Button();
             label8 = new Label();
@@ -52,7 +53,7 @@
             panel2 = new Panel();
             UserName = new TextBox();
             label1 = new Label();
-            PasswordCheck = new CheckBox();
+            Exit_Btn = new Button();
             panel1.SuspendLayout();
             panel8.SuspendLayout();
             panel7.SuspendLayout();
@@ -65,6 +66,7 @@
             // 
             // panel1
             // 
+            panel1.Controls.Add(Exit_Btn);
             panel1.Controls.Add(PasswordCheck);
             panel1.Controls.Add(panel8);
             panel1.Controls.Add(SignUp_Btn);
@@ -77,8 +79,19 @@
             panel1.Controls.Add(panel2);
             panel1.Location = new Point(12, 12);
             panel1.Name = "panel1";
-            panel1.Size = new Size(517, 587);
+            panel1.Size = new Size(517, 614);
             panel1.TabIndex = 0;
+            // 
+            // PasswordCheck
+            // 
+            PasswordCheck.AutoSize = true;
+            PasswordCheck.Location = new Point(312, 255);
+            PasswordCheck.Name = "PasswordCheck";
+            PasswordCheck.Size = new Size(199, 30);
+            PasswordCheck.TabIndex = 9;
+            PasswordCheck.Text = "Hiện thị mật khẩu";
+            PasswordCheck.UseVisualStyleBackColor = true;
+            PasswordCheck.CheckedChanged += PasswordCheck_CheckedChanged;
             // 
             // panel8
             // 
@@ -285,23 +298,24 @@
             label1.TabIndex = 0;
             label1.Text = "Tên đăng nhập: ";
             // 
-            // PasswordCheck
+            // Exit_Btn
             // 
-            PasswordCheck.AutoSize = true;
-            PasswordCheck.Location = new Point(312, 255);
-            PasswordCheck.Name = "PasswordCheck";
-            PasswordCheck.Size = new Size(199, 30);
-            PasswordCheck.TabIndex = 9;
-            PasswordCheck.Text = "Hiện thị mật khẩu";
-            PasswordCheck.UseVisualStyleBackColor = true;
-            PasswordCheck.CheckedChanged += PasswordCheck_CheckedChanged;
+            Exit_Btn.BackColor = Color.Red;
+            Exit_Btn.ForeColor = SystemColors.ControlLightLight;
+            Exit_Btn.Location = new Point(368, 564);
+            Exit_Btn.Name = "Exit_Btn";
+            Exit_Btn.Size = new Size(140, 37);
+            Exit_Btn.TabIndex = 10;
+            Exit_Btn.Text = "Thoát";
+            Exit_Btn.UseVisualStyleBackColor = false;
+            Exit_Btn.Click += Exit_Btn_Click;
             // 
             // SignUp
             // 
             AcceptButton = SignUp_Btn;
             AutoScaleDimensions = new SizeF(13F, 26F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(541, 611);
+            ClientSize = new Size(541, 625);
             Controls.Add(panel1);
             Font = new Font("Times New Roman", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             Margin = new Padding(5, 4, 5, 4);
@@ -354,5 +368,6 @@
         private DateTimePicker BirthDay;
         private TextBox PassWord_confirm;
         private CheckBox PasswordCheck;
+        private Button Exit_Btn;
     }
 }

@@ -124,6 +124,11 @@ namespace Excercise_3
             }
         }
 
+        private void Exit_Btn_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
 
 
         //void AddMessage(string msg)
