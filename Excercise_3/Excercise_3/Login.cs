@@ -14,6 +14,8 @@ using System.IO;
 using System.Security.Cryptography;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 using Excercise_3.DAO;
+using System.Runtime.Serialization;
+using System.Xml;
 
 namespace Excercise_3
 {
@@ -106,7 +108,8 @@ namespace Excercise_3
 
                 byte[] recv = new byte[1024];
                 stream.Read(recv, 0, recv.Length);
-                string s = Encoding.UTF8.GetString(recv);
+                string xmlStr = Encoding.UTF8.GetString(recv);
+                string s = DeserializeXMLData(xmlStr);
 
                 //AddMessage(s);
                 if (int.Parse(s) == 0)
@@ -115,20 +118,40 @@ namespace Excercise_3
                 }
                 else if (int.Parse(s) == 1)
                 {
-                    ShowMainScreen(UserName.Text);
                     
+                    ShowSearchScreen(UserName.Text);
                 }
             }
-
         }
 
-        void ShowMainScreen(string Username)
+        
+
+        public string DeserializeXMLData(string xmlString)
         {
-            MainScreen mainScreen = new MainScreen(Username);
+            xmlString = xmlString.TrimEnd('\0');
+            using (var stringReader = new StringReader(xmlString))
+            using (var xmlReader = XmlReader.Create(stringReader))
+            {
+                var serializer = new DataContractSerializer(typeof(string));
+                return (string)serializer.ReadObject(xmlReader);
+            }
+        }
+
+        void ShowSearchScreen(string Username)
+        {
+            SearchScreen searchScreen = new SearchScreen(Username);
             this.Hide();
-            mainScreen.ShowDialog();
+            searchScreen.ShowDialog();
             this.Show();
         }
+
+        //void ShowMainScreen(string Username)
+        //{
+        //    MainScreen mainScreen = new MainScreen(Username);
+        //    this.Hide();
+        //    mainScreen.ShowDialog();
+        //    this.Show();
+        //}
 
         private void PasswordCheck_CheckedChanged(object sender, EventArgs e)
         {

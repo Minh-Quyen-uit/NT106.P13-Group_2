@@ -124,3 +124,5 @@ E:\Uni\HK3\Network programming\Group\Excercise_3\Excercise_3\obj\Debug\net8.0-wi
 E:\Uni\HK3\Network programming\Group\Excercise_3\Excercise_3\obj\Debug\net8.0-windows\Excercise_3.pdb
 E:\Uni\HK3\Network programming\Group\Excercise_3\Excercise_3\obj\Debug\net8.0-windows\Excercise_3.genruntimeconfig.cache
 E:\Uni\HK3\Network programming\Group\Excercise_3\Excercise_3\obj\Debug\net8.0-windows\ref\Excercise_3.dll
+D:\code\C#\NT106.P13_Excercise3\Excercise_3\Excercise_3\obj\Debug\net8.0-windows\Excercise_3.SearchScreen.resources
+D:\code\C#\NT106.P13_Excercise3\Excercise_3\Excercise_3\bin\Debug\net8.0-windows\Newtonsoft.Json.dll

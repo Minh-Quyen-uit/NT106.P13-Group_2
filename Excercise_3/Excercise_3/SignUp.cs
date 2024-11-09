@@ -14,6 +14,8 @@ using System.IO;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 using Excercise_3.DAO;
 using System.Security.Cryptography;
+using System.Runtime.Serialization;
+using System.Xml;
 
 
 namespace Excercise_3
@@ -89,7 +91,8 @@ namespace Excercise_3
 
                 byte[] recv = new byte[1024];
                 stream.Read(recv, 0, recv.Length);
-                string s = Encoding.UTF8.GetString(recv);
+                string xmlStr = Encoding.UTF8.GetString(recv);
+                string s = DeserializeXMLData(xmlStr);
                 //AddMessage(s);
 
                 int result = int.Parse(s);
@@ -106,6 +109,17 @@ namespace Excercise_3
                 }
             }
 
+        }
+
+        public string DeserializeXMLData(string xmlString)
+        {
+            xmlString = xmlString.TrimEnd('\0');
+            using (var stringReader = new StringReader(xmlString))
+            using (var xmlReader = XmlReader.Create(stringReader))
+            {
+                var serializer = new DataContractSerializer(typeof(string));
+                return (string)serializer.ReadObject(xmlReader);
+            }
         }
 
         private void PasswordCheck_CheckedChanged(object sender, EventArgs e)
