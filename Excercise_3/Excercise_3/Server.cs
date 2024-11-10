@@ -1,4 +1,4 @@
-﻿using Excercise_3.DAO;
+﻿using Excercise_3.JsonFile;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -85,8 +85,8 @@ namespace Excercise_3
                     case 0: Selection0(client, str); break;
                     case 1: Selection1(client, str); break;
                     case 2: Selection2(client, str); break;
-                    case 3: Selection3(client, str); break;
-                    case 4: Selection4(client, str); break;
+                    //case 3: Selection3(client, str); break;
+                    //case 4: Selection4(client, str); break;
                 }
             }
 

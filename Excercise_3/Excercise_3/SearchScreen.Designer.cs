@@ -35,21 +35,29 @@
             Title = new DataGridViewTextBoxColumn();
             Authors = new DataGridViewTextBoxColumn();
             PublishedDate = new DataGridViewTextBoxColumn();
-            Detail = new DataGridViewButtonColumn();
+            isbn = new DataGridViewTextBoxColumn();
+            selecBook = new DataGridViewButtonColumn();
             progressBar = new ProgressBar();
             btnCreateBookshelf = new Button();
             txtBookshelfTitle = new TextBox();
             panel1 = new Panel();
-            ShowBookShelfs = new Button();
-            dvgBookshelf = new DataGridView();
+            panel3 = new Panel();
+            dgvShowBookShelfs = new DataGridView();
+            dgvBookshelf = new DataGridView();
+            BookShelfPersonal = new DataGridViewTextBoxColumn();
+            SelecBookshelf = new DataGridViewCheckBoxColumn();
+            DeleteBookShelf = new DataGridViewButtonColumn();
             panel2 = new Panel();
             menuStrip1 = new MenuStrip();
             MenuTool = new ToolStripMenuItem();
             PersonInfo = new ToolStripMenuItem();
             timer = new System.Windows.Forms.Timer(components);
+            label1 = new Label();
             ((System.ComponentModel.ISupportInitialize)dgvBooks).BeginInit();
             panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dvgBookshelf).BeginInit();
+            panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvShowBookShelfs).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dgvBookshelf).BeginInit();
             panel2.SuspendLayout();
             menuStrip1.SuspendLayout();
             SuspendLayout();
@@ -61,7 +69,7 @@
             btnSearch.ForeColor = SystemColors.ButtonHighlight;
             btnSearch.Location = new Point(850, 7);
             btnSearch.Name = "btnSearch";
-            btnSearch.Size = new Size(237, 34);
+            btnSearch.Size = new Size(387, 34);
             btnSearch.TabIndex = 0;
             btnSearch.Text = "Tìm kiếm";
             btnSearch.UseVisualStyleBackColor = false;
@@ -77,12 +85,13 @@
             // dgvBooks
             // 
             dgvBooks.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvBooks.Columns.AddRange(new DataGridViewColumn[] { Title, Authors, PublishedDate, Detail });
+            dgvBooks.Columns.AddRange(new DataGridViewColumn[] { Title, Authors, PublishedDate, isbn, selecBook });
             dgvBooks.Location = new Point(4, 88);
             dgvBooks.Name = "dgvBooks";
             dgvBooks.RowHeadersWidth = 51;
-            dgvBooks.Size = new Size(840, 459);
+            dgvBooks.Size = new Size(840, 189);
             dgvBooks.TabIndex = 2;
+            dgvBooks.CellContentClick += dgvBooks_CellContentClick;
             // 
             // Title
             // 
@@ -105,12 +114,19 @@
             PublishedDate.Name = "PublishedDate";
             PublishedDate.Width = 125;
             // 
-            // Detail
+            // isbn
             // 
-            Detail.HeaderText = "Chi tiết";
-            Detail.MinimumWidth = 6;
-            Detail.Name = "Detail";
-            Detail.Width = 125;
+            isbn.HeaderText = "Mã sách";
+            isbn.MinimumWidth = 6;
+            isbn.Name = "isbn";
+            isbn.Width = 125;
+            // 
+            // selecBook
+            // 
+            selecBook.HeaderText = "Thêm sách vào kệ";
+            selecBook.MinimumWidth = 6;
+            selecBook.Name = "selecBook";
+            selecBook.Width = 125;
             // 
             // progressBar
             // 
@@ -126,7 +142,7 @@
             btnCreateBookshelf.ForeColor = SystemColors.ButtonFace;
             btnCreateBookshelf.Location = new Point(850, 47);
             btnCreateBookshelf.Name = "btnCreateBookshelf";
-            btnCreateBookshelf.Size = new Size(237, 35);
+            btnCreateBookshelf.Size = new Size(387, 35);
             btnCreateBookshelf.TabIndex = 4;
             btnCreateBookshelf.Text = "Tạo kệ sách";
             btnCreateBookshelf.UseVisualStyleBackColor = false;
@@ -141,47 +157,81 @@
             // 
             // panel1
             // 
-            panel1.Controls.Add(ShowBookShelfs);
-            panel1.Controls.Add(dvgBookshelf);
+            panel1.Controls.Add(label1);
+            panel1.Controls.Add(panel3);
+            panel1.Controls.Add(dgvBookshelf);
             panel1.Controls.Add(txtBookshelfTitle);
             panel1.Controls.Add(btnCreateBookshelf);
             panel1.Controls.Add(progressBar);
             panel1.Controls.Add(dgvBooks);
             panel1.Controls.Add(txtSearch);
             panel1.Controls.Add(btnSearch);
+            panel1.Font = new Font("Times New Roman", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             panel1.Location = new Point(12, 64);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1091, 550);
+            panel1.Size = new Size(1240, 550);
             panel1.TabIndex = 6;
             // 
-            // ShowBookShelfs
+            // panel3
             // 
-            ShowBookShelfs.BackColor = Color.BlueViolet;
-            ShowBookShelfs.Font = new Font("Times New Roman", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            ShowBookShelfs.ForeColor = SystemColors.ButtonHighlight;
-            ShowBookShelfs.Location = new Point(850, 86);
-            ShowBookShelfs.Name = "ShowBookShelfs";
-            ShowBookShelfs.Size = new Size(237, 34);
-            ShowBookShelfs.TabIndex = 7;
-            ShowBookShelfs.Text = "Hiện thị kệ sách";
-            ShowBookShelfs.UseVisualStyleBackColor = false;
-            ShowBookShelfs.Click += ShowBookShelfs_Click;
+            panel3.Controls.Add(dgvShowBookShelfs);
+            panel3.Location = new Point(0, 316);
+            panel3.Name = "panel3";
+            panel3.Size = new Size(1240, 231);
+            panel3.TabIndex = 7;
             // 
-            // dvgBookshelf
+            // dgvShowBookShelfs
             // 
-            dvgBookshelf.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dvgBookshelf.Location = new Point(850, 124);
-            dvgBookshelf.Name = "dvgBookshelf";
-            dvgBookshelf.RowHeadersWidth = 51;
-            dvgBookshelf.Size = new Size(237, 423);
-            dvgBookshelf.TabIndex = 6;
+            dgvShowBookShelfs.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvShowBookShelfs.Dock = DockStyle.Fill;
+            dgvShowBookShelfs.Location = new Point(0, 0);
+            dgvShowBookShelfs.Name = "dgvShowBookShelfs";
+            dgvShowBookShelfs.RowHeadersWidth = 51;
+            dgvShowBookShelfs.Size = new Size(1240, 231);
+            dgvShowBookShelfs.TabIndex = 0;
+            dgvShowBookShelfs.CellContentClick += dgvShowBookShelfs_CellContentClick;
+            // 
+            // dgvBookshelf
+            // 
+            dgvBookshelf.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvBookshelf.Columns.AddRange(new DataGridViewColumn[] { BookShelfPersonal, SelecBookshelf, DeleteBookShelf });
+            dgvBookshelf.Location = new Point(850, 88);
+            dgvBookshelf.Name = "dgvBookshelf";
+            dgvBookshelf.RowHeadersWidth = 51;
+            dgvBookshelf.Size = new Size(387, 189);
+            dgvBookshelf.TabIndex = 6;
+            dgvBookshelf.CellContentClick += dgvBookshelf_CellContentClick;
+            // 
+            // BookShelfPersonal
+            // 
+            BookShelfPersonal.HeaderText = "Kệ sách";
+            BookShelfPersonal.MinimumWidth = 6;
+            BookShelfPersonal.Name = "BookShelfPersonal";
+            BookShelfPersonal.Width = 125;
+            // 
+            // SelecBookshelf
+            // 
+            SelecBookshelf.HeaderText = "Chọn kệ để chứa sách";
+            SelecBookshelf.MinimumWidth = 6;
+            SelecBookshelf.Name = "SelecBookshelf";
+            SelecBookshelf.Width = 125;
+            // 
+            // DeleteBookShelf
+            // 
+            DeleteBookShelf.HeaderText = "xóa";
+            DeleteBookShelf.MinimumWidth = 6;
+            DeleteBookShelf.Name = "DeleteBookShelf";
+            DeleteBookShelf.Resizable = DataGridViewTriState.True;
+            DeleteBookShelf.SortMode = DataGridViewColumnSortMode.Automatic;
+            DeleteBookShelf.UseColumnTextForButtonValue = true;
+            DeleteBookShelf.Width = 125;
             // 
             // panel2
             // 
             panel2.Controls.Add(menuStrip1);
             panel2.Location = new Point(12, 12);
             panel2.Name = "panel2";
-            panel2.Size = new Size(1091, 46);
+            panel2.Size = new Size(1240, 46);
             panel2.TabIndex = 7;
             // 
             // menuStrip1
@@ -192,7 +242,7 @@
             menuStrip1.Items.AddRange(new ToolStripItem[] { MenuTool });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
-            menuStrip1.Size = new Size(1091, 33);
+            menuStrip1.Size = new Size(1240, 33);
             menuStrip1.TabIndex = 0;
             menuStrip1.Text = "menuStrip1";
             // 
@@ -210,12 +260,22 @@
             PersonInfo.Text = "Thông tin cá nhân";
             PersonInfo.Click += PersonInfo_Click;
             // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.ForeColor = SystemColors.ButtonFace;
+            label1.Location = new Point(4, 284);
+            label1.Name = "label1";
+            label1.Size = new Size(250, 25);
+            label1.TabIndex = 8;
+            label1.Text = "Sách trong các kệ sách:";
+            // 
             // SearchScreen
             // 
             AutoScaleDimensions = new SizeF(13F, 26F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Teal;
-            ClientSize = new Size(1115, 626);
+            ClientSize = new Size(1264, 626);
             Controls.Add(panel2);
             Controls.Add(panel1);
             Font = new Font("Times New Roman", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
@@ -226,7 +286,9 @@
             ((System.ComponentModel.ISupportInitialize)dgvBooks).EndInit();
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dvgBookshelf).EndInit();
+            panel3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)dgvShowBookShelfs).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgvBookshelf).EndInit();
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
             menuStrip1.ResumeLayout(false);
@@ -247,12 +309,18 @@
         private MenuStrip menuStrip1;
         private ToolStripMenuItem MenuTool;
         private ToolStripMenuItem PersonInfo;
-        private DataGridView dvgBookshelf;
+        private DataGridView dgvBookshelf;
+        private System.Windows.Forms.Timer timer;
+        private DataGridViewTextBoxColumn BookShelfPersonal;
+        private DataGridViewCheckBoxColumn SelecBookshelf;
+        private DataGridViewButtonColumn DeleteBookShelf;
         private DataGridViewTextBoxColumn Title;
         private DataGridViewTextBoxColumn Authors;
         private DataGridViewTextBoxColumn PublishedDate;
-        private DataGridViewButtonColumn Detail;
-        private System.Windows.Forms.Timer timer;
-        private Button ShowBookShelfs;
+        private DataGridViewTextBoxColumn isbn;
+        private DataGridViewButtonColumn selecBook;
+        private Panel panel3;
+        private DataGridView dgvShowBookShelfs;
+        private Label label1;
     }
 }

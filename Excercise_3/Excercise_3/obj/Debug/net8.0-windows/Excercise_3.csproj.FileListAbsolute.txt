@@ -126,3 +126,10 @@ E:\Uni\HK3\Network programming\Group\Excercise_3\Excercise_3\obj\Debug\net8.0-wi
 E:\Uni\HK3\Network programming\Group\Excercise_3\Excercise_3\obj\Debug\net8.0-windows\ref\Excercise_3.dll
 D:\code\C#\NT106.P13_Excercise3\Excercise_3\Excercise_3\obj\Debug\net8.0-windows\Excercise_3.SearchScreen.resources
 D:\code\C#\NT106.P13_Excercise3\Excercise_3\Excercise_3\bin\Debug\net8.0-windows\Newtonsoft.Json.dll
+D:\code\C#\NT106.P13_Excercise3\Excercise_3\Excercise_3\bin\Debug\net8.0-windows\Google.Apis.dll
+D:\code\C#\NT106.P13_Excercise3\Excercise_3\Excercise_3\bin\Debug\net8.0-windows\Google.Apis.Auth.dll
+D:\code\C#\NT106.P13_Excercise3\Excercise_3\Excercise_3\bin\Debug\net8.0-windows\Google.Apis.Books.v1.dll
+D:\code\C#\NT106.P13_Excercise3\Excercise_3\Excercise_3\bin\Debug\net8.0-windows\Google.Apis.Core.dll
+D:\code\C#\NT106.P13_Excercise3\Excercise_3\Excercise_3\bin\Debug\net8.0-windows\System.Management.dll
+D:\code\C#\NT106.P13_Excercise3\Excercise_3\Excercise_3\bin\Debug\net8.0-windows\runtimes\win\lib\net7.0\System.Management.dll
+D:\code\C#\NT106.P13_Excercise3\Excercise_3\Excercise_3\obj\Debug\net8.0-windows\Excercise_3.BookDetail.resources

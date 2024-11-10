@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data;
 
-namespace Excercise_3.DAO
+namespace Excercise_3.JsonFile
 {
     public class DataProvider
     {
