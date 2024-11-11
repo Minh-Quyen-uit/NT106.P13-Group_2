@@ -19,22 +19,27 @@ namespace Excercise_3.JsonFile
             private set => instance=value;
         }
 
+        // Thêm kệ sách
         public int AddBookShelf(string BookshelfName, string UserName)
         {
+            // Tránh SQL Injection bằng cách sử dụng tham số
+            string query = "SELECT * FROM dbo.BookShelfs WHERE BookshelfName = @BookshelfName AND UserName = @UserName";
             DataTable BookshelfNameResult = DataProvider.Instance.ExecuteQuery("SELECT * FROM dbo.BookShelfs WHERE BookshelfName = N'" + BookshelfName + "' and UserName = N'" + UserName + "' ");
             if(BookshelfNameResult.Rows.Count > 0) 
             {
                 //MessageBox.Show("Tên kệ sách đã tồn tại!"); 
                 return 0;
             }
-            string query = "INSERT INTO dbo.BookShelfs (BookshelfName, UserName) VALUES ( @BookshelfName , @UserName )";
+            query = "INSERT INTO dbo.BookShelfs (BookshelfName, UserName) VALUES ( @BookshelfName , @UserName )";
             int result = DataProvider.Instance.ExecuteNonQuery(query, new object[] { BookshelfName, UserName });
             return result;
         }
 
         public DataTable GetBookShelfs(string UserName)
         {
-            return DataProvider.Instance.ExecuteQuery("SELECT BookshelfName FROM dbo.BookShelfs WHERE UserName = N'" + UserName + "' ");
+            // Tránh SQL Injection bằng cách sử dụng tham số
+            string query = "SELECT BookshelfName FROM dbo.BookShelfs WHERE UserName = @UserName";
+            return DataProvider.Instance.ExecuteQuery(query, new object[] { UserName });
             //DataTable data = DataProvider.Instance.ExecuteQuery("SELECT BookshelfName FROM dbo.BookShelfs WHERE UserName = N'" + UserName + "' ");
             //List<string> list = new List<string>();
             //foreach (DataRow row in data.Rows)
