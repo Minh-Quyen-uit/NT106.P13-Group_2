@@ -12,7 +12,7 @@ namespace Excercise_3.JsonFile
     {
         private static DataProvider instance;
 
-        private string connectionStr = @"Data Source=LAPTOP-SLVPL967;Initial Catalog=QuanLyNguoiDung;Integrated Security=True;Encrypt=True;Trust Server Certificate=True";
+        private string connectionStr = @"Data Source=SULLAGZH;Initial Catalog=QuanLyNguoiDung;Integrated Security=True;Encrypt=True;Trust Server Certificate=True";
 
         public static DataProvider Instance
         {
@@ -145,13 +145,12 @@ namespace Excercise_3.JsonFile
 
                 while (reader.Read())
                 {
-                    string data1 = reader.GetString(0); data.Add(data1);
-                    string data2 = reader.GetString(1); data.Add(data2);
-                    string data3 = reader.GetString(2); data.Add(data3);
-                    string data4 = reader.GetString(3); data.Add(data4);
-                    DateTime Datedata5 = reader.GetDateTime(4);
-                    string data5 = Datedata5.ToString(); data.Add(data5);
-                    
+                    // Đọc tất cả các cột một cách linh hoạt, tránh việc truy cập theo chỉ mục cột
+                    for (int i = 0; i < reader.FieldCount; i++)
+                    {
+                        data.Add(reader[i].ToString());
+                    }
+
                 }
 
                 connection.Close();
