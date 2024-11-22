@@ -85,9 +85,12 @@ namespace Excercise_3
                         this.Close();
                     }
                 }
-                else
+                else if (result == 0) 
                 {
-                    return;
+                    if (MessageBox.Show("Bạn đang sử dụng mật khẩu cũ! Vui lòng nhập mật khẩu mới", "Thông báo", MessageBoxButtons.OK) == System.Windows.Forms.DialogResult.OK)
+                    {
+                        return;
+                    }
                 }
             }
 

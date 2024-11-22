@@ -51,6 +51,7 @@
             Password_Tb.Name = "Password_Tb";
             Password_Tb.Size = new Size(433, 42);
             Password_Tb.TabIndex = 3;
+            Password_Tb.UseSystemPasswordChar = true;
             // 
             // Confirm_Btn
             // 
@@ -86,6 +87,7 @@
             Controls.Add(Password_Tb);
             Controls.Add(label1);
             Name = "ConfirmPassword";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "ConfirmPassword";
             ResumeLayout(false);
             PerformLayout();

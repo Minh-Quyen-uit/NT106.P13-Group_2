@@ -169,16 +169,18 @@ namespace Excercise_3
             ReceiveMessage("Client ResetPassword form:\n");
             ReceiveMessage(username);
             ReceiveMessage(password);
+
+            if(AccountDAO.Instance.login(username, password))
+            {
+                Send(client, "0");
+                SendMessage("To client reset password: 2");
+                return;
+            }
             
             if (AccountDAO.Instance.ResetPassword(username, password) != 0)
             {
                 Send(client, "1");
                 SendMessage("To client reset password: 1");
-            }
-            else
-            {
-                Send(client, "0");
-                SendMessage("To client reset password: 0");
             }
         }
 

@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             panel1 = new Panel();
-            label1 = new Label();
             NewPassword_Tb = new TextBox();
+            label1 = new Label();
             panel2 = new Panel();
             RENewPassword_Tb = new TextBox();
             label2 = new Label();
@@ -49,6 +49,15 @@
             panel1.Size = new Size(512, 114);
             panel1.TabIndex = 0;
             // 
+            // NewPassword_Tb
+            // 
+            NewPassword_Tb.Font = new Font("Times New Roman", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            NewPassword_Tb.Location = new Point(0, 45);
+            NewPassword_Tb.Name = "NewPassword_Tb";
+            NewPassword_Tb.Size = new Size(507, 42);
+            NewPassword_Tb.TabIndex = 1;
+            NewPassword_Tb.UseSystemPasswordChar = true;
+            // 
             // label1
             // 
             label1.AutoSize = true;
@@ -58,14 +67,6 @@
             label1.Size = new Size(251, 34);
             label1.TabIndex = 0;
             label1.Text = "Nhập mật khẩu mới";
-            // 
-            // NewPassword_Tb
-            // 
-            NewPassword_Tb.Font = new Font("Times New Roman", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            NewPassword_Tb.Location = new Point(0, 45);
-            NewPassword_Tb.Name = "NewPassword_Tb";
-            NewPassword_Tb.Size = new Size(507, 42);
-            NewPassword_Tb.TabIndex = 1;
             // 
             // panel2
             // 
@@ -83,6 +84,7 @@
             RENewPassword_Tb.Name = "RENewPassword_Tb";
             RENewPassword_Tb.Size = new Size(507, 42);
             RENewPassword_Tb.TabIndex = 1;
+            RENewPassword_Tb.UseSystemPasswordChar = true;
             // 
             // label2
             // 
@@ -127,6 +129,7 @@
             Controls.Add(panel2);
             Controls.Add(panel1);
             Name = "ResetPassword";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "ResetPassword";
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
