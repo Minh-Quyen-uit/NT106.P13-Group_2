@@ -12,7 +12,7 @@ namespace Excercise_3.JsonFile
     {
         private static DataProvider instance;
 
-        private string connectionStr = @"Data Source=SULLAGZH;Initial Catalog=QuanLyNguoiDung;Integrated Security=True;Encrypt=True;Trust Server Certificate=True";
+        private string connectionStr = @"Data Source=.\SQLExpress;Initial Catalog=QuanLyNguoiDung;Integrated Security=True;Encrypt=True;Trust Server Certificate=True";
 
         public static DataProvider Instance
         {

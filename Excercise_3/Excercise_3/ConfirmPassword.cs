@@ -3,48 +3,50 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
+using System.Net.Sockets;
+using System.Net;
+using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Net;
-using System.Net.Sockets;
-using System.Threading;
-using System.IO;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
-using Excercise_3.JsonFile;
-using System.Runtime.Serialization;
 using System.Xml;
+using System.Security.Cryptography;
 
 namespace Excercise_3
 {
-    public partial class MainScreen : Form
+    public partial class ConfirmPassword : Form
     {
+        //Get username to reuse AccountDAO login function in ConfirmPassword for ResetPassword
+        public string Username;
+
         IPEndPoint ipe;
         TcpClient tcpClient;
         Stream stream;
 
-        public MainScreen(string Username)
+        public ConfirmPassword(string Username)
         {
             InitializeComponent();
+            this.Username = Username;
+        }
+
+        private void Confirm_Btn_Click(object sender, EventArgs e)
+        {
+
             Connect();
-            Send(Username);
+
+            string username = Username;
+            string password = Password_Tb.Text;
+
+            var sha256 = SHA256.Create();
+            byte[] EnteredPassword = sha256.ComputeHash(Encoding.UTF8.GetBytes(password));
+            string EncryptEnteredPassword = Convert.ToBase64String(EnteredPassword);
+            Send(username, EncryptEnteredPassword);
         }
 
+        #region TCP_Connect
 
-        private void Exit_Btn_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-
-        }
-
-        private void LogOut_Btn_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-
-        // TCP
         void Connect()
         {
             ipe = new IPEndPoint(IPAddress.Parse("127.0.0.1"), 9999);
@@ -56,40 +58,35 @@ namespace Excercise_3
             recv.Start();
         }
 
-        void Send(string username)
+        void Send(string username, string password)
         {
-            string str = "2" + Environment.NewLine + username + Environment.NewLine;
+            string str = "0" + Environment.NewLine + username + Environment.NewLine + password + Environment.NewLine;
             byte[] data = Encoding.UTF8.GetBytes(str);
             stream.Write(data, 0, data.Length);
-
         }
 
         void Receive()
         {
             while (true)
             {
-
                 byte[] recv = new byte[1024];
                 stream.Read(recv, 0, recv.Length);
                 string xmlStr = Encoding.UTF8.GetString(recv);
                 string s = DeserializeXMLData(xmlStr);
-                string[] str = s.Split(new[] { '\n' }, StringSplitOptions.RemoveEmptyEntries);
-                UserName.Text = str[0];
-                FullName.Text = str[1];
-                Email.Text = str[2];
-                BirthDay.Text = str[3];
-                //AddMessage(s);
-                //if (int.Parse(str[0].Trim()) == 0)
-                //{
-                //    MessageBox.Show("Tên tài khoản hoặc mật khẩu không chính xác!!!", "thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                //}
-                //else if (int.Parse(str[0].Trim()) == 2)
-                //{
 
-                //}
+                if (int.Parse(s) == 0)
+                {
+                    MessageBox.Show("Mật khẩu không chính xác!!!", "thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else if (int.Parse(s) == 1)
+                {
+                    ResetPassword resetPassword = new ResetPassword(Username);
+                    this.Close();
+                    resetPassword.ShowDialog();
+                }
             }
-
         }
+
         public string DeserializeXMLData(string xmlString)
         {
             xmlString = xmlString.TrimEnd('\0');
@@ -101,11 +98,11 @@ namespace Excercise_3
             }
         }
 
-        private void ResetPass_Btn_Click(object sender, EventArgs e)
+        #endregion
+
+        private void Exit_Btn_Click(object sender, EventArgs e)
         {
-            ConfirmPassword confirmPassword = new ConfirmPassword(UserName.Text);
-            
-            confirmPassword.Show();
+            this.Close();
         }
     }
 }

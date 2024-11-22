@@ -85,7 +85,7 @@ namespace Excercise_3
                     case 0: Selection0(client, str); break;
                     case 1: Selection1(client, str); break;
                     case 2: Selection2(client, str); break;
-                    //case 3: Selection3(client, str); break;
+                    case 3: Selection3(client, str); break;
                     //case 4: Selection4(client, str); break;
                 }
             }
@@ -164,12 +164,22 @@ namespace Excercise_3
         void Selection3(Socket client, string[] str)
         {
             string username = str[1].Trim();
-            ReceiveMessage("Client Search form:\n");
+            string password = str[2].Trim();
+            
+            ReceiveMessage("Client ResetPassword form:\n");
             ReceiveMessage(username);
-            //List<string> list = BookShelf.Instance.GetBookShelfs(username);
-            DataTable dt = BookShelf.Instance.GetBookShelfs(username);
-            dt.TableName = "BookshelfName";
-            Send(client, dt);
+            ReceiveMessage(password);
+            
+            if (AccountDAO.Instance.ResetPassword(username, password) != 0)
+            {
+                Send(client, "1");
+                SendMessage("To client reset password: 1");
+            }
+            else
+            {
+                Send(client, "0");
+                SendMessage("To client reset password: 0");
+            }
         }
 
         void Selection4(Socket client, string[] str)

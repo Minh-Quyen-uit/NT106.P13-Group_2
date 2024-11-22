@@ -86,6 +86,13 @@ namespace Excercise_3.JsonFile
             GetSetAccBirthday = result[4];
         }
 
+        public int ResetPassword(string username, string password)
+        {
+            string query = "UPDATE dbo.UserAccount SET PassWord = @Password  WHERE Username = @Username ";
+            int result = DataProvider.Instance.ExecuteNonQuery(query, new object[] { password, username });
+            return result;
+        }
+
         private bool checkSigninEmail(string email)
         {
             return Regex.IsMatch(email, "^[a-zA-Z0-9_.]{3,24}@gmail.com$");

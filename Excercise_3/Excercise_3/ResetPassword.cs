@@ -3,48 +3,51 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
+using System.Net.Sockets;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Net;
-using System.Net.Sockets;
-using System.Threading;
-using System.IO;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
-using Excercise_3.JsonFile;
 using System.Runtime.Serialization;
 using System.Xml;
+using System.Security.Cryptography;
 
 namespace Excercise_3
 {
-    public partial class MainScreen : Form
+    public partial class ResetPassword : Form
     {
         IPEndPoint ipe;
         TcpClient tcpClient;
         Stream stream;
+        string Username;
 
-        public MainScreen(string Username)
+        public ResetPassword(string Username)
         {
             InitializeComponent();
+            this.Username = Username;
+        }
+
+        private void Confirm_Btn_Click(object sender, EventArgs e)
+        {
             Connect();
-            Send(Username);
+            
+            string password = NewPassword_Tb.Text;
+            string REpassword = RENewPassword_Tb.Text;
+            
+            if (password.Length < 8) { MessageBox.Show("Mật khẩu dài ít nhất 8 ký tự!"); return; }
+            if (password != REpassword) { MessageBox.Show("Mật khẩu nhập lại không chính xác!"); return; }
+
+            var sha256 = SHA256.Create();
+            byte[] Encrypt = sha256.ComputeHash(Encoding.UTF8.GetBytes(password));
+            string EncryptedPassword = Convert.ToBase64String(Encrypt);
+
+            Send(Username, EncryptedPassword);
         }
 
+        #region TCP_Client
 
-        private void Exit_Btn_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-
-        }
-
-        private void LogOut_Btn_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-
-        // TCP
         void Connect()
         {
             ipe = new IPEndPoint(IPAddress.Parse("127.0.0.1"), 9999);
@@ -56,12 +59,11 @@ namespace Excercise_3
             recv.Start();
         }
 
-        void Send(string username)
+        void Send(string username, string password)
         {
-            string str = "2" + Environment.NewLine + username + Environment.NewLine;
+            string str = "3" + Environment.NewLine + username + Environment.NewLine + password;
             byte[] data = Encoding.UTF8.GetBytes(str);
             stream.Write(data, 0, data.Length);
-
         }
 
         void Receive()
@@ -73,20 +75,20 @@ namespace Excercise_3
                 stream.Read(recv, 0, recv.Length);
                 string xmlStr = Encoding.UTF8.GetString(recv);
                 string s = DeserializeXMLData(xmlStr);
-                string[] str = s.Split(new[] { '\n' }, StringSplitOptions.RemoveEmptyEntries);
-                UserName.Text = str[0];
-                FullName.Text = str[1];
-                Email.Text = str[2];
-                BirthDay.Text = str[3];
                 //AddMessage(s);
-                //if (int.Parse(str[0].Trim()) == 0)
-                //{
-                //    MessageBox.Show("Tên tài khoản hoặc mật khẩu không chính xác!!!", "thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                //}
-                //else if (int.Parse(str[0].Trim()) == 2)
-                //{
 
-                //}
+                int result = int.Parse(s);
+                if (result == 1)
+                {
+                    if (MessageBox.Show("Bạn đã đặt lại mật khẩu thành công", "Thông báo", MessageBoxButtons.OK) == System.Windows.Forms.DialogResult.OK)
+                    {
+                        this.Close();
+                    }
+                }
+                else
+                {
+                    return;
+                }
             }
 
         }
@@ -101,11 +103,6 @@ namespace Excercise_3
             }
         }
 
-        private void ResetPass_Btn_Click(object sender, EventArgs e)
-        {
-            ConfirmPassword confirmPassword = new ConfirmPassword(UserName.Text);
-            
-            confirmPassword.Show();
-        }
+        #endregion
     }
 }

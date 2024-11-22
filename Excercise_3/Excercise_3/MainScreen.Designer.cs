@@ -30,6 +30,7 @@
         {
             panel1 = new Panel();
             panel7 = new Panel();
+            ResetPass_Btn = new Button();
             LogOut_Btn = new Button();
             Exit_Btn = new Button();
             panel6 = new Panel();
@@ -68,6 +69,7 @@
             // 
             // panel7
             // 
+            panel7.Controls.Add(ResetPass_Btn);
             panel7.Controls.Add(LogOut_Btn);
             panel7.Controls.Add(Exit_Btn);
             panel7.Location = new Point(6, 318);
@@ -75,13 +77,25 @@
             panel7.Size = new Size(441, 52);
             panel7.TabIndex = 7;
             // 
+            // ResetPass_Btn
+            // 
+            ResetPass_Btn.BackColor = Color.YellowGreen;
+            ResetPass_Btn.ForeColor = SystemColors.ControlLightLight;
+            ResetPass_Btn.Location = new Point(137, 8);
+            ResetPass_Btn.Name = "ResetPass_Btn";
+            ResetPass_Btn.Size = new Size(153, 37);
+            ResetPass_Btn.TabIndex = 7;
+            ResetPass_Btn.Text = "Đổi mật khẩu";
+            ResetPass_Btn.UseVisualStyleBackColor = false;
+            ResetPass_Btn.Click += ResetPass_Btn_Click;
+            // 
             // LogOut_Btn
             // 
             LogOut_Btn.BackColor = Color.Teal;
             LogOut_Btn.ForeColor = SystemColors.ButtonFace;
-            LogOut_Btn.Location = new Point(261, 8);
+            LogOut_Btn.Location = new Point(303, 8);
             LogOut_Btn.Name = "LogOut_Btn";
-            LogOut_Btn.Size = new Size(177, 37);
+            LogOut_Btn.Size = new Size(135, 37);
             LogOut_Btn.TabIndex = 6;
             LogOut_Btn.Text = "Đăng Xuất";
             LogOut_Btn.UseVisualStyleBackColor = false;
@@ -93,7 +107,7 @@
             Exit_Btn.ForeColor = SystemColors.ControlLightLight;
             Exit_Btn.Location = new Point(3, 8);
             Exit_Btn.Name = "Exit_Btn";
-            Exit_Btn.Size = new Size(177, 37);
+            Exit_Btn.Size = new Size(121, 37);
             Exit_Btn.TabIndex = 5;
             Exit_Btn.Text = "Thoát";
             Exit_Btn.UseVisualStyleBackColor = false;
@@ -259,5 +273,6 @@
         private Panel panel7;
         private Button Exit_Btn;
         private Button LogOut_Btn;
+        private Button ResetPass_Btn;
     }
 }
