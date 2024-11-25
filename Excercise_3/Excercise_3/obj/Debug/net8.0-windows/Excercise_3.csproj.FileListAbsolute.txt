@@ -143,3 +143,4 @@ E:\Uni\HK3\Network programming\Group\Excercise_3\Excercise_3\bin\Debug\net8.0-wi
 E:\Uni\HK3\Network programming\Group\Excercise_3\Excercise_3\obj\Debug\net8.0-windows\Excercise_3.SearchScreen.resources
 E:\Uni\HK3\Network programming\Group\Excercise_3\Excercise_3\obj\Debug\net8.0-windows\Excercise_3.ResetPassword.resources
 E:\Uni\HK3\Network programming\Group\Excercise_3\Excercise_3\obj\Debug\net8.0-windows\Excercise_3.ConfirmPassword.resources
+E:\Uni\HK3\Network programming\Group\Excercise_3\Excercise_3\obj\Debug\net8.0-windows\Excercise_3.ForgotPassword.resources

@@ -7,6 +7,9 @@
     <Compile Update="ConfirmPassword.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="ForgotPassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Login.cs">
       <SubType>Form</SubType>
     </Compile>

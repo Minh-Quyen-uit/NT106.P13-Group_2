@@ -30,6 +30,7 @@
         {
             panel1 = new Panel();
             panel6 = new Panel();
+            ForgotPassword_lLb = new LinkLabel();
             Exit_Btn = new Button();
             panel5 = new Panel();
             PasswordCheck = new CheckBox();
@@ -67,11 +68,24 @@
             // 
             // panel6
             // 
+            panel6.Controls.Add(ForgotPassword_lLb);
             panel6.Controls.Add(Exit_Btn);
             panel6.Location = new Point(3, 317);
             panel6.Name = "panel6";
             panel6.Size = new Size(525, 52);
             panel6.TabIndex = 4;
+            // 
+            // ForgotPassword_lLb
+            // 
+            ForgotPassword_lLb.AutoSize = true;
+            ForgotPassword_lLb.Location = new Point(12, 13);
+            ForgotPassword_lLb.Name = "ForgotPassword_lLb";
+            ForgotPassword_lLb.Size = new Size(165, 26);
+            ForgotPassword_lLb.TabIndex = 6;
+            ForgotPassword_lLb.TabStop = true;
+            ForgotPassword_lLb.Text = "Quên mật khẩu?";
+            ForgotPassword_lLb.VisitedLinkColor = Color.Blue;
+            ForgotPassword_lLb.LinkClicked += ForgotPassword_lLb_LinkClicked;
             // 
             // Exit_Btn
             // 
@@ -223,6 +237,7 @@
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             panel6.ResumeLayout(false);
+            panel6.PerformLayout();
             panel5.ResumeLayout(false);
             panel5.PerformLayout();
             panel4.ResumeLayout(false);
@@ -252,5 +267,6 @@
         private Panel panel6;
         private Button Exit_Btn;
         private CheckBox PasswordCheck;
+        private LinkLabel ForgotPassword_lLb;
     }
 }

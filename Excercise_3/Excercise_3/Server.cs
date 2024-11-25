@@ -86,7 +86,7 @@ namespace Excercise_3
                     case 1: Selection1(client, str); break;
                     case 2: Selection2(client, str); break;
                     case 3: Selection3(client, str); break;
-                    //case 4: Selection4(client, str); break;
+                    case 4: Selection4(client, str); break;
                 }
             }
 
@@ -173,7 +173,7 @@ namespace Excercise_3
             if(AccountDAO.Instance.login(username, password))
             {
                 Send(client, "0");
-                SendMessage("To client reset password: 2");
+                SendMessage("To client reset password: 0");
                 return;
             }
             
@@ -186,26 +186,21 @@ namespace Excercise_3
 
         void Selection4(Socket client, string[] str)
         {
-            string BookshelfName = str[1].Trim();
-            string username = str[2].Trim();
-            ReceiveMessage("Client Search form:\n");
-            ReceiveMessage(BookshelfName);
-            ReceiveMessage(username);
-            //List<string> data = new List<string>();
-            
-            
-            if (BookShelf.Instance.AddBookShelf(BookshelfName, username) == 0)
-            {
-                DataTable dataTable = new DataTable();
-                dataTable.TableName = "BookshelfName";
-                Send(client, dataTable);
-            } else
-            {
-                DataTable dataTable = BookShelf.Instance.GetBookShelfs(username);
-                dataTable.TableName = "BookshelfName";
-                Send(client, dataTable);
-            }
+            string email = str[1].Trim();
 
+            ReceiveMessage("Client ForgotPassword form:\n");
+            ReceiveMessage(email);
+
+            if (AccountDAO.Instance.ForgotPassword(email)){
+
+                Send(client, "1");
+                SendMessage("To client forgot password: 1");
+            }
+            else
+            {
+                Send(client, "0");
+                SendMessage("To client forgot password: 0");
+            }
         }
 
         public byte[] SerializeData(object obj)

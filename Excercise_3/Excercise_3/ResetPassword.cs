@@ -75,7 +75,6 @@ namespace Excercise_3
                 stream.Read(recv, 0, recv.Length);
                 string xmlStr = Encoding.UTF8.GetString(recv);
                 string s = DeserializeXMLData(xmlStr);
-                //AddMessage(s);
 
                 int result = int.Parse(s);
                 if (result == 1)

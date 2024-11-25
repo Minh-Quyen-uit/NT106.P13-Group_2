@@ -98,6 +98,19 @@ namespace Excercise_3.JsonFile
             return Regex.IsMatch(email, "^[a-zA-Z0-9_.]{3,24}@gmail.com$");
         }
 
+        public bool ForgotPassword(string email)
+        {
+            string query = "SELECT * FROM dbo.UserAccount WHERE Email = @email ";
+            DataTable result = DataProvider.Instance.ExecuteQuery(query, new object[] {  email });
+            return result.Rows.Count > 0;
+        }
+
+        public int ForgotPasswordReset(string email, string password)
+        {
+            string query = "UPDATE dbo.UserAccount SET PassWord = @Password  WHERE Email = @Email ";
+            int result = DataProvider.Instance.ExecuteNonQuery(query, new object[] { password, email });
+            return result;
+        }
 
     }
 

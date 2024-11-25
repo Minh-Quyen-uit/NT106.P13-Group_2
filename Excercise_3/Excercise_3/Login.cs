@@ -118,13 +118,12 @@ namespace Excercise_3
                 }
                 else if (int.Parse(s) == 1)
                 {
-                    
+
                     ShowSearchScreen(UserName.Text);
                 }
             }
         }
 
-        
 
         public string DeserializeXMLData(string xmlString)
         {
@@ -165,6 +164,14 @@ namespace Excercise_3
                 // Ẩn mật khẩu
                 PassWord.PasswordChar = '*';
             }
+        }
+
+        private void ForgotPassword_lLb_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            ForgotPassword forgotPassword = new ForgotPassword();
+            this.Hide();
+            forgotPassword.ShowDialog();
+            this.Show();
         }
     }
 }
